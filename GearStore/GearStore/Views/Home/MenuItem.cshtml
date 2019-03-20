@@ -1,0 +1,8 @@
+﻿@model IEnumerable<GearStore.Models.Category>
+
+<ul class="megamenu__links megamenu__links--level--1">
+    @foreach (var item in Model)
+    {
+        <li class="megamenu__item"><a href="@Url.Action("Index","Products",new { category = item.CategoryID})">@item.CategoryName</a></li>
+    }
+</ul>
