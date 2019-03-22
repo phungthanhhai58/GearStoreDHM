@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i"><!-- css -->
     <link href="~/vendor/bootstrap-4.2.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/vendor/owl-carousel-2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="~/Content/style.css" rel="stylesheet" />
+
     <script src="~/vendor/jquery-3.3.1/jquery.min.js"></script>
     <script src="~/vendor/bootstrap-4.2.1/js/bootstrap.bundle.min.js"></script>
     <script src="~/vendor/owl-carousel-2.3.4/owl.carousel.min.js"></script>
     <script src="~/vendor/nouislider-12.1.0/nouislider.min.js"></script>
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/number.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" />
     <script src="~/vendor/svg4everybody-2.1.9/svg4everybody.min.js"></script>
     <!--Không biết-->
     <script>svg4everybody();</script>
@@ -532,9 +533,6 @@
                                 <a class="topbar-link" href="@Url.Action("Contact","Home")">Liên Hệ</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="#">Vị Trí</a>
-                            </div>
-                            <div class="topbar__item topbar__item--link">
                                 <a class="topbar-link" href="track-order.html">Kiểm Tra Đơn Hàng</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
@@ -644,7 +642,7 @@
                     <div class="site-header__search">
                         <div class="search">
                             <form class="search__form" action="#">
-                                <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                <input class="search__input" name="search" placeholder="Tìm kiếm hơn 10.000 sản phẩm..." aria-label="Site search" type="text" autocomplete="off">
                                 <button class="search__button" type="submit">
                                     <svg width="20px" height="20px">
                                         <use xlink:href="~/images/sprite.svg#search-20"></use>
@@ -660,7 +658,7 @@
                     </div>
                 </div>
                 <div class="site-header__nav-panel">
-                    <div class="nav-panel">
+                    <div class="nav-panel ">
                         <div class="nav-panel__container container">
                             <div class="nav-panel__row">
                                 <div class="nav-panel__departments">
@@ -755,7 +753,7 @@
                                             </div>
                                         </li>
                                         <li class="nav-links__item">
-                                            <a href="contact-us.html">
+                                            <a href="@Url.Action("Contact","Home")">
                                                 <span>Liên Hệ</span>
                                             </a>
                                         </li>
