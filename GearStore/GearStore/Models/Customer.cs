@@ -11,7 +11,6 @@ namespace GearStore.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Customer
@@ -23,8 +22,10 @@ namespace GearStore.Models
         }
     
         public int CustomerID { get; set; }
-        //[DisplayName("Ten dang nhap")]
+        [Required]
+        [DataType(DataType.Text)]
         public string Username { get; set; }
+        [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public string Email { get; set; }

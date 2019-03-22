@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GearStore.Models;
+using System.Data.Entity;
 
 namespace GearStore.Controllers
 {
@@ -16,20 +17,19 @@ namespace GearStore.Controllers
             ViewBag.IsHomePage = true;
             return View(_dataContext.Products.OrderByDescending(p=>p.UpdatedDate).Take(6));
         }
+
+        [ChildActionOnly]
         public ActionResult Menu()
         {
-            return PartialView(_dataContext.Menus);
+            return PartialView(_dataContext.Menus.Include(p => p.Categories));
         }
-        [ChildActionOnly]
-        public ActionResult MenuItem(int id)
-        {
-            return PartialView(_dataContext.Categories.Where(p => p.MenuID == id));
-        }
-        public ActionResult AboutUs()
+
+        public ActionResult About()
         {
             return View();
         }
-        public ActionResult ContactUs()
+
+        public ActionResult Contact()
         {
             return View();
         }

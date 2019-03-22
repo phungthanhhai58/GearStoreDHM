@@ -16,11 +16,11 @@ namespace GearStore.Controllers
         private ElectronicComponentsSMEntities _dataContext = new ElectronicComponentsSMEntities();
 
         // GET: Products
-        public async Task<ActionResult> Index(int? page, int? menu, int? category)
+        public async Task<ActionResult> Index(int? page, int? menu, int? category, int? manufacturer)
         {
             if (page < 1)
             {
-                return RedirectToAction(nameof(Index), new { menu, category });
+                return RedirectToAction(nameof(Index), new { menu, category, manufacturer });
             }
             var products = _dataContext.Products.Include(p => p.Category).Include(p => p.Manufacturer);
             if (menu.HasValue)
@@ -29,7 +29,11 @@ namespace GearStore.Controllers
             }
             if (category.HasValue)
             {
-                products = products.Where(p => p.CategoryID== category.Value);
+                products = products.Where(p => p.CategoryID == category.Value);
+            }
+            if (manufacturer.HasValue)
+            {
+                products = products.Where(p => p.ManufacturerID == manufacturer.Value);
             }
             var count = products.Count();
             var n = 12;

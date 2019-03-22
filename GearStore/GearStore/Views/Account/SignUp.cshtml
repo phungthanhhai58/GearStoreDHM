@@ -1,10 +1,8 @@
-﻿@model GearStore.Models.Customer
+﻿@model GearStore.Models.SignUpViewModel
 
 @{
     ViewBag.Title = "SignUp";
 }
-
-
 
 <div class="site__body">
     <div class="page-header">
@@ -39,6 +37,13 @@
                                         <div class="col-md-12">
                                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-6" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -88,10 +93,7 @@
                                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        @*<div class="col-md-offset-2 col-md-10">
-                                                <input type="submit" value="Create" class="btn btn-success" />
-                                            </div>*@
+                                    <div class="form-group">                                      
                                         <div class="col-md-offset-2 col-md-12">
                                             <button class="btn btn-lg btn-primary btn-block" type="submit" value="Create">
                                                 Đăng Ký
@@ -110,3 +112,4 @@
         </div>
     </div>
 </div>
+
