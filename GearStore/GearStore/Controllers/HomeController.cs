@@ -33,5 +33,13 @@ namespace GearStore.Controllers
         {
             return View();
         }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _dataContext.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

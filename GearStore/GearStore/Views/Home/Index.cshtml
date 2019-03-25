@@ -159,7 +159,7 @@
                                 <div class="product-card__prices">1,200,000 VNĐ</div>
                                 <div class="product-card__buttons">
                                     <button class="btn btn-primary product-card__addtocart" type="button">Đặt hàng</button>
-                                    <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
+                                    <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Đặt hàng</button>
                                 </div>
                             </div>
                         </div>
@@ -239,12 +239,11 @@
                                         <span class="text-success">In Stock</span>
                                     </div>
                                     <div class="product-card__prices">@String.Format("{0:N0}", item.Price) VNĐ</div>
-                                    <div class="product-card__buttons">
-                                        <button class="btn btn-primary product-card__addtocart" type="button">Đặt hàng</button>
-                                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
-
-
-                                    </div>
+                                    <form class="product-card__buttons" method="post" action="@Url.Action("AddToCart","Products")">
+                                        <input type="number" name="id" value="@item.ProductID" hidden />
+                                        <button class="btn btn-primary product-card__addtocart" type="submit">Đặt hàng</button>
+                                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="submit">Add To Cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

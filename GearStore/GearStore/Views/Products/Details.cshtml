@@ -53,7 +53,8 @@
                             @*@Html.DisplayFor(model => model.Price)*@
                             @String.Format("{0:N0}", Model.Price) VNĐ
                         </div>  <!-- .product__options -->
-                        <form class="product__options">
+                        <form class="product__options" method="post" action="@Url.Action("AddToCart","Products")">
+                            <input type="number" name="id" value="@Model.ProductID" hidden />
                             <!--Loại-->
                             @*<div class="form-group product__option">
                                 <label class="product__option-label">Loại:</label>
@@ -71,7 +72,7 @@
                                 <div class="product__actions">
                                     <div class="product__actions-item">
                                         <div class="input-number product__quantity">
-                                            <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
+                                            <input id="product-quantity" name="quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
                                             <div class="input-number__add">  </div>
                                             <div class="input-number__sub">  </div>
                                         </div>

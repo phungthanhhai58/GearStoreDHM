@@ -11,8 +11,7 @@ namespace GearStore.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,6 +30,8 @@ namespace GearStore.Models
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string PhotoFilePatch { get; set; }
         public bool Discontinued { get; set; }
+        public int ReorderLevel { get; set; }
+        public byte Rating { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }

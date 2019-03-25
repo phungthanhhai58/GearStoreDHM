@@ -36,7 +36,7 @@ namespace GearStore.Controllers
                 products = products.Where(p => p.ManufacturerID == manufacturer.Value);
             }
             var count = products.Count();
-            var n = 12;
+            var n = 8;
             var maxPage = count % n == 0 ? count / n : count / n + 1;
             page = page ?? 1;
             if (page > maxPage && count != 0)
@@ -45,6 +45,9 @@ namespace GearStore.Controllers
             }
             ViewBag.MaxPage = maxPage;
             ViewBag.NowPage = page;
+            ViewBag.Menu = menu;
+            ViewBag.Category = category;
+            ViewBag.Manufacturer = manufacturer;
             var skip = page.Value * n - n;
             return View(await products.OrderByDescending(p => p.UpdatedDate).Skip(skip).Take(n).ToListAsync());
         }
@@ -63,7 +66,57 @@ namespace GearStore.Controllers
             }
             return View(product);
         }
-
+        [HttpPost]
+        public ActionResult AddToCart(int? id, int? quantity)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var obj = _dataContext.Products.SingleOrDefault(p => p.ProductID == id && !p.Discontinued);
+            if (obj == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            quantity = quantity ?? 1;
+            if (Session["Cart"] == null)
+            {
+                Session["Cart"] = new CartViewModel();
+            }
+            var cart = Session["Cart"] as CartViewModel;
+            var item = cart.Items.Find(p => p.ProductID == id);
+            if (item != null)
+            {
+                item.Quantity += quantity.Value;
+            }
+            else
+            {
+                cart.Items.Add(new CartItemViewModel
+                {
+                    ProductID = obj.ProductID,
+                    ProductName = obj.ProductName,
+                    CategoryID = obj.CategoryID,
+                    ManufacturerID = obj.ManufacturerID,
+                    PhotoFilePatch = obj.PhotoFilePatch,
+                    Price = obj.Price,
+                    Quantity = quantity.Value,
+                    Category = obj.Category,
+                    Manufacturer = obj.Manufacturer
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public ActionResult RemoveFromCart(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var cart = Session["Cart"] as CartViewModel;
+            cart.Items.Remove(cart.Items.Find(p => p.ProductID == id));
+            return RedirectToAction("Index");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -16,6 +16,7 @@
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
@@ -102,6 +103,8 @@
           <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
           <ScalarProperty Name="PhotoFilePatch" ColumnName="PhotoFilePatch" />
           <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+          <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

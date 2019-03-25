@@ -15,6 +15,7 @@
     <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDisabled" Type="bit" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BirthDate" Type="date" />
@@ -95,6 +96,8 @@
     <Property Name="UpdatedDate" Type="datetime" />
     <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
     <Property Name="Discontinued" Type="bit" Nullable="false" />
+    <Property Name="ReorderLevel" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

@@ -142,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -314,8 +315,8 @@
     <Content Include="images\teammates\teammate-3.jpg" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -358,6 +359,7 @@
     <Content Include="vendor\owl-carousel-2.3.4\assets\owl.video.play.png" />
     <Content Include="vendor\owl-carousel-2.3.4\owl.carousel.min.js" />
     <Content Include="vendor\svg4everybody-2.1.9\svg4everybody.min.js" />
+    <Content Include="Views\Shared\_CartPartial.cshtml" />
     <None Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

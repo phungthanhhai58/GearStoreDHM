@@ -24,16 +24,22 @@ namespace GearStore.Controllers
                 var isValid = _dataContext.Customers.SingleOrDefault(p => p.Username == account.Username);
                 if (isValid == null)
                 {
-                    ViewBag.Message = "Tên đăng nhập hoặc mật khẩu bị sai.";
+                    ViewBag.Message = "Tài khoản không tồn tại.";
                     return View(account);
                 }
-                HttpCookie userCookie = new HttpCookie("account", account.Username);
+                else if (isValid.Password != account.Password)
+                {
+                    ViewBag.Message = "Mật khẩu bị sai.";
+                    return View(account);
+                }
+                HttpCookie userCookie = new HttpCookie("Account", account.Username);
                 userCookie["ID"] = isValid.CustomerID.ToString();
                 userCookie["Username"] = account.Username;
                 userCookie["Password"] = account.Password;
                 userCookie.Expires = DateTime.Now.AddDays(1);
                 Response.SetCookie(userCookie);
                 return RedirectToAction("Index", "Home");
+
             }
             return View(account);
         }
@@ -69,7 +75,7 @@ namespace GearStore.Controllers
 
         public ActionResult SignOut()
         {
-            HttpCookie userCookie = new HttpCookie("account");
+            HttpCookie userCookie = new HttpCookie("Account");
             userCookie.Expires = DateTime.Now.AddDays(-1);
             Response.SetCookie(userCookie);
             return RedirectToAction("Index", "Home");
@@ -77,7 +83,15 @@ namespace GearStore.Controllers
 
         public ActionResult Details()
         {
-            return Content(Request.Cookies["account"]?["UserName"] ?? "404 NotFound Account");
+            return Content(Request.Cookies["Account"]?["UserName"] ?? "404 NotFound Account");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _dataContext.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

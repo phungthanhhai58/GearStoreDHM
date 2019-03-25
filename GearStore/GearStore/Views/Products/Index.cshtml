@@ -4,87 +4,221 @@
     ViewBag.Title = "Danh sách SP";
 }
 
-<h2>Danh sách sản phẩm</h2>
-
-<div class="block-products__list">
-    @foreach (var item in Model)
-    {
-        <div class="block-products__list-item">
-            <div class="product-card">
-                <div class="product-card__image">
-                    <a href="@Url.Action("Details","Products",new { id = item.ProductID})">
-                        <img src="~/images/products/@item.PhotoFilePatch" />
-                    </a>
-                </div>
-                <div class="product-card__info">
-                    <div class="product-card__name"><a href="@Url.Action("Details","Products",new { id = item.ProductID})">@item.ProductName</a></div>
-                    <div class="product-card__rating">
-                        <div class="rating">
-                            <div class="rating__body">
-                                <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                    <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
-                                    <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
-                                </svg>
-                                <div class="rating__star rating__star--only-edge rating__star--active">
-                                    <div class="rating__fill"><div class="fake-svg-icon"></div></div>
-                                    <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
-                                </div>
-                                <svg class="rating__star rating__star--active" width="13px" height="12px">
-                                    <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
-                                    <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
-                                </svg>
-                                <div class="rating__star rating__star--only-edge rating__star--active">
-                                    <div class="rating__fill"><div class="fake-svg-icon"></div></div>
-                                    <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
-                                </div>
-                                <svg class="rating__star" width="13px" height="12px">
-                                    <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
-                                    <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
-                                </svg>
-                                <div class="rating__star rating__star--only-edge">
-                                    <div class="rating__fill"><div class="fake-svg-icon"></div></div>
-                                    <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
-                                </div>
-                                <svg class="rating__star" width="13px" height="12px">
-                                    <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
-                                    <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
-                                </svg>
-                                <div class="rating__star rating__star--only-edge">
-                                    <div class="rating__fill"><div class="fake-svg-icon"></div></div>
-                                    <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
-                                </div>
-                                <svg class="rating__star" width="13px" height="12px">
-                                    <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
-                                    <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
-                                </svg>
-                                <div class="rating__star rating__star--only-edge">
-                                    <div class="rating__fill"><div class="fake-svg-icon"></div></div>
-                                    <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+<div class="row">
+    <div class="col-12">
+        <div class="page-header">
+            <div class="page-header__container container">
+                <div class="page-header__title"><h1>Danh sách sản phẩm</h1></div>
+            </div>
+        </div>
+        <div class="block">
+            <div class="products-view">
+                <div class="products-view__options">
+                    <div class="view-options">
+                        <div class="view-options__layout">
+                            <div class="layout-switcher">
+                                <div class="layout-switcher__list">
+                                    <button data-layout="grid-4-full" data-with-features="false" title="Grid" type="button" class="layout-switcher__button layout-switcher__button--active"><svg width="16px" height="16px"><use xlink:href="~/images/sprite.svg#layout-grid-16x16"></use></svg></button> <button data-layout="grid-4-full" data-with-features="true" title="Grid With Features" type="button" class="layout-switcher__button"><svg width="16px" height="16px"><use xlink:href="~/images/sprite.svg#layout-grid-with-details-16x16"></use></svg></button> <button data-layout="list" data-with-features="false" title="List" type="button" class="layout-switcher__button"><svg width="16px" height="16px"><use xlink:href="~/images/sprite.svg#layout-list-16x16"></use></svg></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="product-card__rating-legend">4 Reviews</div>
+                        <div class="view-options__legend"></div>
+                        <div class="view-options__divider"></div>
+                        @*<div class="view-options__control">
+                            <label for="">Sort By</label>
+                            <div>
+                                <select class="form-control form-control-sm" name="" id="">
+                                    <option value="1">Order By Date</option>
+                                    <option value="2">Name (A-Z)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="view-options__control">
+                            <label for="">Show</label>
+                            <div>
+                                <select class="form-control form-control-sm" name="" id="">
+                                    <option value="1">8</option>
+                                    <option value="2">16</option>
+                                </select>
+                            </div>
+                        </div>*@
                     </div>
-                    <ul class="product-card__features-list">
-                        <li>Speed: 750 RPM</li>
-                        <li>Power Source: Cordless-Electric</li>
-                        <li>Battery Cell Type: Lithium</li>
-                        <li>Voltage: 20 Volts</li>
-                        <li>Battery Capacity: 2 Ah</li>
-                    </ul>
                 </div>
-                <div class="product-card__actions">
-                    <div class="product-card__availability">
-                        Availability:
-                        <span class="text-success">In Stock</span>
+                <div class="products-view__list products-list" data-layout="grid-4-full" data-with-features="false">
+                    <div class="products-list__body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="products-list__item">
+                                <div class="product-card">
+                                    @*<div class="product-card__badges-list">
+                                            <div class="product-card__badge product-card__badge--new">New</div>
+                                        </div>*@
+                                    <div class="product-card__image">
+                                        <a href="@Url.Action("Details","Products",new{ id = item.ProductID})">
+                                            <img src="~/images/products/@item.PhotoFilePatch" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-card__info">
+                                        <div class="product-card__name">
+                                            <a href="@Url.Action("Details","Products",new{ id = item.ProductID})">@item.ProductName</a>
+                                        </div>
+                                        <div class="product-card__rating">
+                                            <div class="rating">
+                                                <div class="rating__body">
+                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                        <g class="rating__fill">
+                                                            <use xlink:href="~/images/sprite.svg#star-normal"></use>
+                                                        </g>
+                                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                                    </svg>
+                                                    <div class="rating__star rating__star--only-edge rating__star--active">
+                                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div><div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                                    </div>
+                                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                                    </svg>
+                                                    <div class="rating__star rating__star--only-edge rating__star--active">
+                                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div><div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                                    </div><svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                                    </svg>
+                                                    <div class="rating__star rating__star--only-edge rating__star--active">
+                                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div>
+                                                        <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                                    </div><svg class="rating__star rating__star--active" width="13px" height="12px">
+                                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                                    </svg>
+                                                    <div class="rating__star rating__star--only-edge rating__star--active">
+                                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div><div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                                    </div><svg class="rating__star" width="13px" height="12px">
+                                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                                    </svg><div class="rating__star rating__star--only-edge">
+                                                        <div class="rating__fill">
+                                                            <div class="fake-svg-icon"></div>
+                                                        </div><div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*<div class="product-card__rating-legend">9 Reviews</div>*@
+                                        </div>
+                                        @*<ul class="product-card__features-list">
+                                                <li>Speed: 750 RPM</li>
+                                                <li>Power Source: Cordless-Electric</li>
+                                                <li>Battery Cell Type: Lithium</li>
+                                                <li>Voltage: 20 Volts</li>
+                                                <li>Battery Capacity: 2 Ah</li>
+                                            </ul>*@
+                                    </div>
+                                    <div class="product-card__actions">
+                                        <div class="product-card__availability">
+                                            Availability:
+                                            <span class="text-success">In Stock</span>
+                                        </div><div class="product-card__prices">@Html.DisplayFor(model => item.Price)</div>
+                                        <div class="product-card__buttons">
+                                            <form method="post" action="@Url.Action("AddToCart","Products")">
+                                                <input type="number" name="id" value="@item.ProductID" hidden />
+                                                <button class="btn btn-primary product-card__addtocart" type="submit">Đặt hàng</button>
+                                                <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="submit">Đặt hàng</button>
+                                            </form>
+                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                                <svg width="16px" height="16px">
+                                                    <use xlink:href="~/images/sprite.svg#wishlist-16"></use>
+                                                </svg> <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                            </button>
+                                            <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                                <svg width="16px" height="16px">
+                                                    <use xlink:href="~/images/sprite.svg#compare-16"></use>
+                                                </svg> <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
-                    <div class="product-card__prices">@String.Format("{0:N0}", item.Price) VNĐ</div>
-                    <div class="product-card__buttons">
-                        <button class="btn btn-primary product-card__addtocart" type="button">Đặt hàng</button>
-                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
-                    </div>
+                </div>
+                <div class="products-view__pagination">
+                    <ul class="pagination justify-content-center">
+                        @{
+                            var maxPage = ViewBag.MaxPage;
+                            var nowPage = ViewBag.NowPage;
+                            var n = 4;
+                            if (nowPage > 1)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link page-link--with-arrow" href="@Url.Action("Index", new { page=(nowPage-1), menu=ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })" aria-label="Previous">
+                                        <svg class="page-link__arrow page-link__arrow--left" aria-hidden="true" width="8px" height="13px">
+                                            <use xlink:href="~/images/sprite.svg#arrow-rounded-left-8x13"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item disabled">
+                                    <a class="page-link page-link--with-arrow" href="@Url.Action("Index",new { page=1,menu =ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })" aria-label="Previous">
+                                        <svg class="page-link__arrow page-link__arrow--left" aria-hidden="true" width="8px" height="13px">
+                                            <use xlink:href="~/images/sprite.svg#arrow-rounded-left-8x13"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            }
+                            for (int i = nowPage - n; i <= nowPage + n; i++)
+                            {
+                                if (i < 1)
+                                {
+                                    continue;
+                                }
+                                else if (i > maxPage)
+                                {
+                                    break;
+                                }
+                                else if (i == nowPage)
+                                {
+                                    <li class="page-item active">
+                                        <a class="page-link" href="@Url.Action("Index",new { page=i,menu =ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })">
+                                            @i<span class="sr-only">
+                                                (current)
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Index",new { page=i,menu =ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })">@i</a>
+                                    </li>
+                                }
+                            }
+                            if (nowPage < maxPage)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link page-link--with-arrow" href="@Url.Action("Index",new { page=(nowPage+1),menu =ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })" aria-label="Next">
+                                        <svg class="page-link__arrow page-link__arrow--right" aria-hidden="true" width="8px" height="13px">
+                                            <use xlink:href="~/images/sprite.svg#arrow-rounded-right-8x13"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item disabled">
+                                    <a class="page-link page-link--with-arrow" href="@Url.Action("Index",new { page=maxPage,menu =ViewBag.Menu, category=ViewBag.Category, manufacturer=ViewBag.Manufacturer })" aria-label="Next">
+                                        <svg class="page-link__arrow page-link__arrow--right" aria-hidden="true" width="8px" height="13px">
+                                            <use xlink:href="~/images/sprite.svg#arrow-rounded-right-8x13"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+
