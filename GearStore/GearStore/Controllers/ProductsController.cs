@@ -78,7 +78,7 @@ namespace GearStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
-            quantity = quantity ?? 1;
+            quantity = quantity.HasValue ? quantity > 1 ? quantity : 1 : 1;
             if (Session["Cart"] == null)
             {
                 Session["Cart"] = new CartViewModel();

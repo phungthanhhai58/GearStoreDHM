@@ -1,0 +1,77 @@
+﻿@using GearStore.Models
+
+@{
+    var cart = Session["Cart"] as CartViewModel;
+}
+@if (cart?.Count > 0)
+{
+    <div class="indicator indicator--trigger--click">
+        <a href="javascript: void(0)" class="indicator__button">
+            <span class="indicator__area">
+                <svg width="20px" height="20px">
+                    <use xlink:href="~/images/sprite.svg#cart-20"></use>
+                </svg>
+                <span class="indicator__value">@(cart.Count<100?cart.Count.ToString():"99+")</span>
+            </span>
+        </a>
+        <div class="indicator__dropdown">
+            <!-- .dropcart -->
+            <div class="dropcart">
+                <div class="dropcart__products-list">
+                    @foreach (var item in cart.Items)
+                    {
+                        <div class="dropcart__product">
+                            <div class="dropcart__product-image">
+                                <a href="product.html">
+                                    <img src="~/images/products/@item.PhotoFilePatch" alt="">
+                                </a>
+                            </div>
+                            <div class="dropcart__product-info">
+                                <div class="dropcart__product-name">
+                                    <a href="product.html">@item.ProductName</a>
+                                </div>
+                                <div class="dropcart__product-meta">
+                                    <span class="dropcart__product-quantity">@item.Quantity</span> x
+                                    <span class="dropcart__product-price">@Html.DisplayFor(model => item.Price)</span>
+                                </div>
+                            </div>
+                            <form action="@Url.Action("RemoveFromCart", "Products", new { id = item.ProductID })" method="post">
+                                <button type="submit" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
+                                    <svg width="10px" height="10px">
+                                            <use xlink:href="~/images/sprite.svg#cross-10"></use>
+                                        </svg>
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+                <div class="dropcart__totals">
+                    <table>
+                        <tr><th>Subtotal</th><td>@Html.DisplayFor(model => cart.Subtotal) VNĐ</td></tr>
+                        <tr><th>Shipping</th><td>@Html.DisplayFor(model => cart.Shipping) VNĐ</td></tr>
+                        <tr><th>Tax</th><td>@Html.DisplayFor(model => cart.Tax) VNĐ</td></tr>
+                        <tr><th>Total</th><td>@Html.DisplayFor(model => cart.Total) VNĐ</td></tr>
+                    </table>
+                </div>
+                <div class="dropcart__buttons">
+                    <a class="btn btn-secondary" href="@Url.Action("MyCart","Products")">View Cart</a>
+                    <a class="btn btn-primary" href="javascript: void(0)">Checkout</a>
+                </div>
+            </div>
+            <!-- .dropcart / end -->
+        </div>
+    </div>
+}
+else
+{
+    <div class="indicator indicator--trigger--click">
+        <a href="javascript: void(0)" class="indicator__button">
+            <span class="indicator__area">
+                <svg width="20px" height="20px">
+                    <use xlink:href="~/images/sprite.svg#cart-20"></use>
+                </svg>
+                <span class="indicator__value">0</span>
+            </span>
+        </a>
+    </div>
+}

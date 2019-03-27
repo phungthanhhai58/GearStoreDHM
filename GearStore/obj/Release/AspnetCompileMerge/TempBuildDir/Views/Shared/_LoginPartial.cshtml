@@ -1,0 +1,14 @@
+﻿@{
+    var account = Request.Cookies["Account"];
+}
+@if (account == null)
+{
+    <li><a href="@Url.Action("SignIn","Account")">Đăng Nhập</a></li>
+    <li><a href="@Url.Action("SignUp","Account")">Đăng Kí</a></li>
+}
+else
+{
+    <li><a href="@Url.Action("Details","Account")">@account["Username"]</a></li>
+    <li><a href="@Url.Action("SignOut","Account")">Đăng Xuất</a></li>
+}
+<li><a href="#">Đơn Hàng</a></li>
