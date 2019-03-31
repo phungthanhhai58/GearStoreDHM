@@ -120,7 +120,7 @@ namespace GearStore.Controllers
         [UserAuthorize]
         public ActionResult CheckOut()
         {
-            return Content("Is CheckOuted");
+            return View();
         }
         protected override void Dispose(bool disposing)
         {
