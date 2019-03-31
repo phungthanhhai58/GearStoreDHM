@@ -6,7 +6,7 @@
     </Key>
     <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MenuID" Type="int" />
+    <Property Name="MenuID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -67,8 +67,8 @@
     </Key>
     <Property Name="OrderID" Type="int" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="Price" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="6" Nullable="false" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>
@@ -90,10 +90,10 @@
     <Property Name="ProductName" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="ManufacturerID" Type="int" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="18" Scale="6" />
-    <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
-    <Property Name="UnitsInStock" Type="int" />
-    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="PhotoFilePatch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnitsInStock" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
     <Property Name="ReorderLevel" Type="int" Nullable="false" />
     <Property Name="Rating" Type="tinyint" Nullable="false" />
     <Property Name="Discontinued" Type="bit" Nullable="false" />
@@ -111,7 +111,7 @@
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_Categories_Menus">
-    <End Role="Menus" Type="Self.Menus" Multiplicity="0..1" />
+    <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
     <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Menus">

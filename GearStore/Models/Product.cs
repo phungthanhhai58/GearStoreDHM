@@ -24,10 +24,10 @@ namespace GearStore.Models
         public string ProductName { get; set; }
         public int CategoryID { get; set; }
         public int ManufacturerID { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public decimal Price { get; set; }
         public string PhotoFilePatch { get; set; }
-        public Nullable<int> UnitsInStock { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public int UnitsInStock { get; set; }
+        public System.DateTime UpdatedDate { get; set; }
         public int ReorderLevel { get; set; }
         public byte Rating { get; set; }
         public bool Discontinued { get; set; }

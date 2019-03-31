@@ -239,7 +239,7 @@
                                         <span class="text-success">In Stock</span>
                                     </div>
                                     <div class="product-card__prices">@String.Format("{0:N0}", item.Price) VNĐ</div>
-                                    <form class="product-card__buttons" method="post" action="@Url.Action("AddToCart","Products")">
+                                    <form class="product-card__buttons" method="post" action="@Url.Action("AddToCart","Cart")">
                                         <input type="number" name="id" value="@item.ProductID" hidden />
                                         <button class="btn btn-primary product-card__addtocart" type="submit">Đặt hàng</button>
                                         <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="submit">Add To Cart</button>

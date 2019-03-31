@@ -22,20 +22,20 @@
                     {
                         <div class="dropcart__product">
                             <div class="dropcart__product-image">
-                                <a href="product.html">
+                                <a href="@Url.Action("Details","Products",new{id = item.ProductID})">
                                     <img src="~/images/products/@item.PhotoFilePatch" alt="">
                                 </a>
                             </div>
                             <div class="dropcart__product-info">
                                 <div class="dropcart__product-name">
-                                    <a href="product.html">@item.ProductName</a>
+                                    <a href="@Url.Action("Details","Products",new{id = item.ProductID})">@item.ProductName</a>
                                 </div>
                                 <div class="dropcart__product-meta">
                                     <span class="dropcart__product-quantity">@item.Quantity</span> x
                                     <span class="dropcart__product-price">@Html.DisplayFor(model => item.Price)</span>
                                 </div>
                             </div>
-                            <form action="@Url.Action("RemoveFromCart", "Products", new { id = item.ProductID })" method="post">
+                            <form action="@Url.Action("RemoveFromCart", "Cart", new { id = item.ProductID,returnUrl= ViewContext.HttpContext.Request.Url.PathAndQuery })" method="post">
                                 <button type="submit" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
                                     <svg width="10px" height="10px">
                                             <use xlink:href="~/images/sprite.svg#cross-10"></use>
@@ -54,7 +54,7 @@
                     </table>
                 </div>
                 <div class="dropcart__buttons">
-                    <a class="btn btn-secondary" href="@Url.Action("MyCart","Products")">View Cart</a>
+                    <a class="btn btn-secondary" href="@Url.Action("Index","Cart")">View Cart</a>
                     <a class="btn btn-primary" href="javascript: void(0)">Checkout</a>
                 </div>
             </div>

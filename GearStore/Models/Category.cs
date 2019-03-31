@@ -22,7 +22,7 @@ namespace GearStore.Models
     
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
-        public Nullable<int> MenuID { get; set; }
+        public int MenuID { get; set; }
     
         public virtual Menu Menu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

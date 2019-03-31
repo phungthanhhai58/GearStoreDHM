@@ -783,16 +783,9 @@
         </header>
         <!-- desktop site__header / end -->
         <!-- site__body -->
-        @if (ViewBag.IsHomePage == true)
-        {
+
             @RenderBody()
-        }
-        else
-        {
-            <div class="container">
-                @RenderBody()
-            </div>
-        }
+        
         <!-- site__body / end -->
         <!-- site__footer -->
         <footer class="site__footer">
