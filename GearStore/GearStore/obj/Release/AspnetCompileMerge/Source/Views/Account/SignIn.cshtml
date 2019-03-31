@@ -1,0 +1,62 @@
+﻿@model GearStore.Models.SignInViewModel
+
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<!-- site__body -->
+<div class="site__body">
+    <div class="page-header">
+        <div class="page-header__container container">
+            <div class="page-header__title">
+                <h1></h1>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 d-flex">
+                    <div class="card flex-grow-1 mb-md-0">
+                        <div class="card-body">
+                            <h2 class="card-title" style="text-align:center">Đăng Nhập</h2>
+                            <hr />
+                            <form action="@Url.Action("SignIn","Account")" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @if (ViewBag.Message != null)
+                                    {
+                                    <span class="text-danger">@ViewBag.Message</span>
+                                    }
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-12">
+                                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                                Đăng Nhập
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GearStore.Models.Menu>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-6">
+            <ul class="megamenu__links megamenu__links--level--0">
+                <li class="megamenu__item megamenu__item--with-submenu">
+                    <a href="@Url.Action("Index","Products",new { menu = item.MenuID})">@item.MenuName</a>
+
+                    <ul class="megamenu__links megamenu__links--level--1">
+                        @foreach (var itemC in item.Categories)
+                        {
+                            <li class="megamenu__item"><a href="@Url.Action("Index","Products",new { category = itemC.CategoryID})">@itemC.CategoryName</a></li>
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    }
+</div>
+
+

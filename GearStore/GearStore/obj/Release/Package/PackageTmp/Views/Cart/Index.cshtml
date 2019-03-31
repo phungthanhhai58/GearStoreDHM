@@ -1,0 +1,132 @@
+﻿@model GearStore.Models.CartViewModel
+
+<div class="site__body">
+    <div class="page-header">
+        <div class="page-header__container container">
+            <div class="page-header__breadcrumb">
+            </div><div class="page-header__title"><h1>Shopping Cart</h1></div>
+        </div>
+    </div><div class="cart block">
+        <div class="container">
+            <form action="@Url.Action("UpdateCart","Cart")" method="post">
+                <table class="cart__table cart-table">
+                    <thead class="cart-table__head">
+                        <tr class="cart-table__row">
+                            <th class="cart-table__column cart-table__column--image">
+                                @Html.DisplayNameFor(model => model.Items[0].PhotoFilePatch)
+                            </th>
+                            <th class="cart-table__column cart-table__column--product">
+                                @Html.DisplayNameFor(model => model.Items[0].ProductName)
+                            </th>
+                            <th class="cart-table__column cart-table__column--price">
+                                @Html.DisplayNameFor(model => model.Items[0].Price)
+                            </th>
+                            <th class="cart-table__column cart-table__column--quantity">
+                                @Html.DisplayNameFor(model => model.Items[0].Quantity)
+                            </th>
+                            <th class="cart-table__column cart-table__column--total">
+                                @Html.DisplayNameFor(model => model.Items[0].Total)
+                            </th>
+                            <th class="cart-table__column cart-table__column--remove"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="cart-table__body">
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr class="cart-table__row">
+                                <td class="cart-table__column cart-table__column--image">
+                                    <a href="@Url.Action("Details","Products",new{id = item.ProductID})"><img src="~/images/products/@item.PhotoFilePatch" alt=""></a>
+                                </td>
+                                <td class="cart-table__column cart-table__column--product">
+                                    <a href="@Url.Action("Details","Products",new{id = item.ProductID})" class="cart-table__product-name">
+                                        @Html.DisplayFor(modelItem => item.ProductName)
+                                    </a>
+                                    <ul class="cart-table__options">
+                                        <li>
+                                            @Html.DisplayNameFor(modelItem => item.Category.CategoryName): @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                        </li>
+                                        <li>
+                                            @Html.DisplayNameFor(modelItem => item.Menu.MenuName): @Html.DisplayFor(modelItem => item.Menu.MenuName)
+                                        </li>
+                                        <li>
+                                            @Html.DisplayNameFor(modelItem => item.Manufacturer.ManufacturerName): @Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerName)
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="cart-table__column cart-table__column--price" data-title="Price">
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
+                                    <div class="input-number">
+                                        <input class="form-control input-number__input" name="product-@item.ProductID" type="number" min="1" value="@item.Quantity">
+                                        <div class="input-number__add"></div>
+                                        <div class="input-number__sub"></div>
+                                    </div>
+                                </td>
+                                <td class="cart-table__column cart-table__column--total" data-title="Total">
+                                    @Html.DisplayFor(modelItem => item.Total)
+                                </td>
+                                <td class="cart-table__column cart-table__column--remove">
+                                    <a  href="@Url.Action("RemoveFromMyCart", "Cart", new { id = item.ProductID})" class="btn btn-light btn-sm btn-svg-icon">
+                                        <svg width="12px" height="12px"><use xlink:href="~/images/sprite.svg#cross-12"></use></svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="cart__actions">
+                    @*<form class="cart__coupon-form">
+                            <label for="input-coupon-code" class="sr-only">Password</label>
+                            <input type="text" class="form-control" id="input-coupon-code" placeholder="Coupon Code">
+                            <button type="submit" class="btn btn-primary">Apply Coupon</button>
+                        </form>*@
+                    <div class="cart__coupon-form"></div>
+                    <div class="cart__buttons">
+                        <a href="@Url.Action("Index","Products")" class="btn btn-light">Continue Shopping</a>
+                        <button type="submit" class="btn btn-primary cart__update-button">Update Cart</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row justify-content-end pt-5">
+                <div class="col-12 col-md-7 col-lg-6 col-xl-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Cart Totals</h3>
+                            <table class="cart__totals">
+                                <thead class="cart__totals-header">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => Model.Subtotal)</th>
+                                        <td>@Html.DisplayFor(model => Model.Subtotal) VNĐ</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="cart__totals-body">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => Model.Shipping)</th>
+                                        <td>
+                                            @Html.DisplayFor(model => Model.Shipping) VNĐ
+                                            <div class="cart__calc-shipping">
+                                                <a href="javascript: void(0)">Calculate Shipping</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => Model.Tax)</th>
+                                        <td>@Html.DisplayFor(model => Model.Tax) VNĐ</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="cart__totals-footer">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => Model.Total)</th>
+                                        <td>@Html.DisplayFor(model => Model.Total) VNĐ</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <a class="btn btn-primary btn-xl btn-block cart__checkout-button" href="#checkout">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

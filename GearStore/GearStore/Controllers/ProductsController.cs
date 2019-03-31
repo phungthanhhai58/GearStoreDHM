@@ -66,57 +66,6 @@ namespace GearStore.Controllers
             }
             return View(product);
         }
-        [HttpPost]
-        public ActionResult AddToCart(int? id, int? quantity)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var obj = _dataContext.Products.SingleOrDefault(p => p.ProductID == id && !p.Discontinued);
-            if (obj == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            }
-            quantity = quantity.HasValue ? quantity > 1 ? quantity : 1 : 1;
-            if (Session["Cart"] == null)
-            {
-                Session["Cart"] = new CartViewModel();
-            }
-            var cart = Session["Cart"] as CartViewModel;
-            var item = cart.Items.Find(p => p.ProductID == id);
-            if (item != null)
-            {
-                item.Quantity += quantity.Value;
-            }
-            else
-            {
-                cart.Items.Add(new CartItemViewModel
-                {
-                    ProductID = obj.ProductID,
-                    ProductName = obj.ProductName,
-                    CategoryID = obj.CategoryID,
-                    ManufacturerID = obj.ManufacturerID,
-                    PhotoFilePatch = obj.PhotoFilePatch,
-                    Price = obj.Price,
-                    Quantity = quantity.Value,
-                    Category = obj.Category,
-                    Manufacturer = obj.Manufacturer
-                });
-            }
-            return RedirectToAction("Index");
-        }
-        [HttpPost]
-        public ActionResult RemoveFromCart(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var cart = Session["Cart"] as CartViewModel;
-            cart.Items.Remove(cart.Items.Find(p => p.ProductID == id));
-            return RedirectToAction("Index");
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

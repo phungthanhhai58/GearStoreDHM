@@ -23,13 +23,13 @@ namespace GearStore.Models
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
-        public int CategoryID { get; set; }
-        public int ManufacturerID { get; set; }
         public int Quantity { get; set; }
         public decimal? Price { get; set; }
         public decimal? Total { get => Quantity * Price; }
         public string PhotoFilePatch { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual Manufacturer Manufacturer { get; set; }
+        public Category Category { get; set; }
+        public Manufacturer Manufacturer { get; set; }
+        public Menu Menu { get; set; }
+
     }
 }
