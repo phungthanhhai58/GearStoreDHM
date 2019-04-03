@@ -1,164 +1,167 @@
-﻿
+﻿@model GearStore.Models.CartViewModel
+
 @{
-    ViewBag.Title = "CheckOut";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Checkout";
 }
 
-<h2>CheckOut</h2>
 <!-- site__body -->
 <div class="site__body">
+    <div class="page-header">
+        <div class="page-header__container container">
+            <div class="page-header__breadcrumb">
+            </div><div class="page-header__title"><h1>Checkout</h1></div>
+        </div>
+    </div>
     <div class="checkout block">
         <div class="container">
             <div class="row">
-
-                <div class="col-12 col-lg-6 col-xl-7">
-                    <div class="card mb-lg-0">
-                        <div class="card-body">
-                            <h3 class="card-title">Billing details</h3>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="checkout-first-name">First Name</label>
-                                    <input type="text" class="form-control" id="checkout-first-name" placeholder="First Name">
+                @*<div class="col-12 col-lg-6 col-xl-7">
+                        <div class="card mb-lg-0">
+                            <div class="card-body">
+                                <h3 class="card-title">Billing details</h3>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="checkout-first-name">First Name</label>
+                                        <input type="text" class="form-control" id="checkout-first-name" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="checkout-last-name">Last Name</label>
+                                        <input type="text" class="form-control" id="checkout-last-name" placeholder="Last Name">
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="checkout-last-name">Last Name</label>
-                                    <input type="text" class="form-control" id="checkout-last-name" placeholder="Last Name">
+                                <div class="form-group">
+                                    <label for="checkout-company-name">Company Name <span class="text-muted">(Optional)</span></label>
+                                    <input type="text" class="form-control" id="checkout-company-name" placeholder="Company Name">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-company-name">Company Name <span class="text-muted">(Optional)</span></label>
-                                <input type="text" class="form-control" id="checkout-company-name" placeholder="Company Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-country">Country</label>
-                                <select id="checkout-country" class="form-control">
-                                    <option>Select a country...</option>
-                                    <option>United States</option>
-                                    <option>Russia</option>
-                                    <option>Italy</option>
-                                    <option>France</option>
-                                    <option>Ukraine</option>
-                                    <option>Germany</option>
-                                    <option>Australia</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-street-address">Street Address</label>
-                                <input type="text" class="form-control" id="checkout-street-address" placeholder="Street Address">
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-address">
-                                    Apartment, suite, unit etc.
-                                    <span class="text-muted">(Optional)</span>
-                                </label>
-                                <input type="text" class="form-control" id="checkout-address">
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-city">Town / City</label>
-                                <input type="text" class="form-control" id="checkout-city">
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-state">State / County</label>
-                                <input type="text" class="form-control" id="checkout-state">
-                            </div><div class="form-group">
-                                <label for="checkout-postcode">Postcode / ZIP</label>
-                                <input type="text" class="form-control" id="checkout-postcode">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="checkout-email">Email address</label>
-                                    <input type="email" class="form-control" id="checkout-email" placeholder="Email address">
+                                <div class="form-group">
+                                    <label for="checkout-country">Country</label>
+                                    <select id="checkout-country" class="form-control">
+                                        <option>Select a country...</option>
+                                        <option>United States</option>
+                                        <option>Russia</option>
+                                        <option>Italy</option>
+                                        <option>France</option>
+                                        <option>Ukraine</option>
+                                        <option>Germany</option>
+                                        <option>Australia</option>
+                                    </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="checkout-phone">Phone</label>
-                                    <input type="text" class="form-control" id="checkout-phone" placeholder="Phone">
+                                <div class="form-group">
+                                    <label for="checkout-street-address">Street Address</label>
+                                    <input type="text" class="form-control" id="checkout-street-address" placeholder="Street Address">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <span class="form-check-input input-check">
-                                        <span class="input-check__body">
-                                            <input class="input-check__input" type="checkbox" id="checkout-create-account">
-                                            <span class="input-check__box"></span>
-                                            <svg class="input-check__icon" width="9px" height="7px">
-                                                <use xlink:href="images/sprite.svg#check-9x7"></use>
-                                            </svg>
+                                <div class="form-group">
+                                    <label for="checkout-address">
+                                        Apartment, suite, unit etc.
+                                        <span class="text-muted">(Optional)</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="checkout-address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="checkout-city">Town / City</label>
+                                    <input type="text" class="form-control" id="checkout-city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="checkout-state">State / County</label>
+                                    <input type="text" class="form-control" id="checkout-state">
+                                </div><div class="form-group">
+                                    <label for="checkout-postcode">Postcode / ZIP</label>
+                                    <input type="text" class="form-control" id="checkout-postcode">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="checkout-email">Email address</label>
+                                        <input type="email" class="form-control" id="checkout-email" placeholder="Email address">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="checkout-phone">Phone</label>
+                                        <input type="text" class="form-control" id="checkout-phone" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <span class="form-check-input input-check">
+                                            <span class="input-check__body">
+                                                <input class="input-check__input" type="checkbox" id="checkout-create-account">
+                                                <span class="input-check__box"></span>
+                                                <svg class="input-check__icon" width="9px" height="7px">
+                                                    <use xlink:href="images/sprite.svg#check-9x7"></use>
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
-                                    <label class="form-check-label" for="checkout-create-account">Create an account?</label>
+                                        <label class="form-check-label" for="checkout-create-account">Create an account?</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body">
+                                <h3 class="card-title">Shipping Details</h3>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <span class="form-check-input input-check">
+                                            <span class="input-check__body">
+                                                <input class="input-check__input" type="checkbox" id="checkout-different-address">
+                                                <span class="input-check__box"></span>
+                                                <svg class="input-check__icon" width="9px" height="7px">
+                                                    <use xlink:href="images/sprite.svg#check-9x7"></use>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <label class="form-check-label" for="checkout-different-address">Ship to a different address?</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="checkout-comment">
+                                        Order notes
+                                        <span class="text-muted">(Optional)</span>
+                                    </label>
+                                    <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-divider"></div>
-                        <div class="card-body">
-                            <h3 class="card-title">Shipping Details</h3>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <span class="form-check-input input-check">
-                                        <span class="input-check__body">
-                                            <input class="input-check__input" type="checkbox" id="checkout-different-address">
-                                            <span class="input-check__box"></span>
-                                            <svg class="input-check__icon" width="9px" height="7px">
-                                                <use xlink:href="images/sprite.svg#check-9x7"></use>
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    <label class="form-check-label" for="checkout-different-address">Ship to a different address?</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkout-comment">
-                                    Order notes
-                                    <span class="text-muted">(Optional)</span>
-                                </label>
-                                <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+                    </div>*@
+                <div class="col-lg-6">
                     <div class="card mb-0">
                         <div class="card-body">
                             <h3 class="card-title">Your Order</h3>
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+                            {
+                                <span class="text-danger">@ViewBag.Message</span>
+                            }
                             <table class="checkout__totals">
                                 <thead class="checkout__totals-header">
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Total</th>
+                                        <th>@Html.DisplayNameFor(model => model.Items[0].ProductName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Items[0].Total)</th>
                                     </tr>
                                 </thead>
                                 <tbody class="checkout__totals-products">
-                                    <tr>
-                                        <td>Electric Planer Brandix KL370090G 300 Watts × 2</td>
-                                        <td>$1,398.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Undefined Tool IRadix DPS3000SY 2700 watts × 1</td>
-                                        <td>$849.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brandix Router Power Tool 2017ERXPK × 3</td>
-                                        <td>$3,630.00</td>
-                                    </tr>
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.ProductName) × @Html.DisplayFor(modelItem => item.Quantity)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                                        </tr>
+                                    }
                                 </tbody>
                                 <tbody class="checkout__totals-subtotals">
                                     <tr>
-                                        <th>Subtotal</th>
-                                        <td>$5,877.00</td>
+                                        <th>@Html.DisplayNameFor(model => model.Subtotal)</th>
+                                        <td>@Html.DisplayFor(model => model.Subtotal)</td>
                                     </tr>
                                     <tr>
-                                        <th>Store Credit</th>
-                                        <td>$-20.00</td>
+                                        <th>@Html.DisplayNameFor(model => model.Tax)</th>
+                                        <td>@Html.DisplayFor(model => model.Tax)</td>
                                     </tr>
                                     <tr>
-                                        <th>Shipping</th>
-                                        <td>$25.00</td>
+                                        <th>@Html.DisplayNameFor(model => model.Shipping)</th>
+                                        <td>@Html.DisplayFor(model => model.Shipping)</td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="checkout__totals-footer">
                                     <tr>
-                                        <th>Total</th>
-                                        <td>$5,882.00</td>
+                                        <th>@Html.DisplayNameFor(model => model.Total)</th>
+                                        <td>@Html.DisplayFor(model => model.Total)</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -178,11 +181,19 @@
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-xl btn-block">Place Order</button>
+                            <form action="@Url.Action("Checkout","Cart")" method="post">
+                                <button id="place-order" type="submit" class="btn btn-primary btn-xl btn-block disabled">Place Order</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div><!-- site__body / end -->
+</div>
+<!-- site__body / end -->
+<script>
+    $("#checkout-terms").click(function () {
+        $("#place-order").toggleClass("disabled");
+    });
+</script>

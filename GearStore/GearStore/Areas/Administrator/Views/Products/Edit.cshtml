@@ -100,7 +100,6 @@
                             </div>
                             @Html.ValidationMessageFor(model => model.Discontinued, "", new { @class = "text-danger" })
                         </div>
-                        </div>
                         <div class="col-md-12">
                             <div class="form-group bmd-form-group">
                                 <label class="bmd-label-floating">
@@ -121,7 +120,7 @@
                         </div>
                         <div class="col-md-12">
                             @Html.HiddenFor(model => model.PhotoFilePatch)
-                            <img src="~/images/products/@Model.PhotoFilePatch" style="width:400px"/>
+                            <img src="~/images/products/@Model.PhotoFilePatch" style="width:400px" />
                             <input type="file" id="UploadImage" name="UploadImage" multiple="">
                         </div>
                         <div class="col-md-12">

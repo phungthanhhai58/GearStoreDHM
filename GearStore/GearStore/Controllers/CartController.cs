@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -118,10 +119,72 @@ namespace GearStore.Controllers
             return RedirectToAction("Index", "Products");
         }
         [UserAuthorize]
-        public ActionResult CheckOut()
+        public ActionResult Checkout()
         {
-            return Content("Is CheckOuted");
+            if (Session["Cart"] is CartViewModel cart && cart.Items.Count > 0)
+            {
+                Session["CheckoutCart"] = cart;
+                return View(cart);
+            }
+            return RedirectToAction("Index", "Products");
         }
+        [UserAuthorize,ActionName("Checkout")]
+        [HttpPost]
+        public async Task<ActionResult> SubmitCheckout()
+        {
+            if (Session["CheckoutCart"] is CartViewModel cart && cart.Items.Count > 0)
+            {
+                var account = Request.Cookies["Account"];
+                var customerID = int.Parse(account["ID"]);
+                using (var dbCxtTransaction = _dataContext.Database.BeginTransaction())
+                {
+                    string message = "";
+                    try
+                    {
+                        var order = new Order
+                        {
+                            CustomerID = customerID,
+                            OrderDate = DateTime.Now,
+                            ShippedDate = DateTime.Now.AddDays(3),
+                        };
+                        _dataContext.Orders.Add(order);
+                        await _dataContext.SaveChangesAsync();
+                        foreach (var item in cart.Items)
+                        {
+                            var orderDetail = new OrderDetail
+                            {
+                                OrderID = order.OrderID,
+                                ProductID = item.ProductID,
+                                Quantity = item.Quantity,
+                                Price = item.Price,
+                            };
+                            _dataContext.OrderDetails.Add(orderDetail);
+                            var product = _dataContext.Products.Find(item.ProductID);
+                            product.UnitsInStock -= item.Quantity;
+                            message = "Sản phẩm " + item.ProductName + " bị lỗi trong quá trình đặt hàng, xóa hoặc chỉnh sửa lại số lượng.";
+                            await _dataContext.SaveChangesAsync();
+                        }
+                        dbCxtTransaction.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        dbCxtTransaction.Rollback();
+                        ViewBag.Message = message;
+                        return View(cart);
+                    }
+                }
+                Session["Cart"] = null;
+                Session["CheckoutCart"] = null;
+                return RedirectToAction("IsCheckout");
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult IsCheckout()
+        {
+            return Content("Xong rồi nhé");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using GearStore.Controllers.CustomAttributes;
 using GearStore.Models;
 namespace GearStore.Controllers
 {
@@ -88,18 +89,11 @@ namespace GearStore.Controllers
             Response.SetCookie(userCookie);
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Details(int? id)
+        [UserAuthorize]
+        public ActionResult Details()
         {
-            string message;
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            if (FailCheck(id.Value, out message))
-            {
-                ViewBag.Message = message;
-                return RedirectToAction("SignIn");
-            }
+            var account = Request.Cookies["Account"];
+            var id = int.Parse(account["ID"]);
             var obj = _dataContext.Customers.SingleOrDefault(p => p.CustomerID == id);
             return View(new AcccountDetailsViewModel
             {
@@ -113,18 +107,13 @@ namespace GearStore.Controllers
                 PhoneNumber = obj.PhoneNumber
             });
         }
+        [UserAuthorize]
         [HttpPost,ActionName("Details")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> UpdateDetails(AcccountDetailsViewModel account)
         {
             if (ModelState.IsValid)
             {
-                string message;
-                if (FailCheck(account.CustomerID, out message))
-                {
-                    ViewBag.Message = message;
-                    return RedirectToAction("SignIn");
-                }
                 var obj = await _dataContext.Customers.SingleOrDefaultAsync(p => p.CustomerID == account.CustomerID);
                 obj.Email = account.Email;
                 obj.FullName = account.FullName;
@@ -144,34 +133,6 @@ namespace GearStore.Controllers
                 _dataContext.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public bool FailCheck(int requestId, out string message)
-        {
-            message = "";
-            var acccount = Request.Cookies["Account"];
-            if (acccount == null)
-            {
-                message = "Vui lòng đăng nhập";
-                return true;
-            }
-            var id = int.Parse(acccount["ID"]);
-            var model = _dataContext.Customers.SingleOrDefault(p => p.CustomerID == id);
-            if (id != requestId)
-            {
-                message = "Vui lòng đăng nhập.";
-                return true;
-            }
-            if (model.IsDisabled)
-            {
-                message = "Tài khoản đã bị khóa";
-                return true;
-            }
-            else if (model.Password != acccount["Password"])
-            {
-                message = "Mật khẩu đã bị thay đổi, vui lòng đăng nhập lại";
-                return true;
-            }
-            return false;
         }
     }
 }

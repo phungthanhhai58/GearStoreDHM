@@ -24,8 +24,8 @@ namespace GearStore.Models
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public int Quantity { get; set; }
-        public decimal? Price { get; set; }
-        public decimal? Total { get => Quantity * Price; }
+        public decimal Price { get; set; }
+        public decimal Total { get => Quantity * Price; }
         public string PhotoFilePatch { get; set; }
         public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }

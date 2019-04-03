@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -9,10 +10,11 @@ using System.Web;
 using System.Web.Mvc;
 using GearStore.Models;
 using GearStore.Areas.Administrator.Models;
-using System.IO;
+using GearStore.Areas.Administrator.Controllers.CustomAttributes;
 
 namespace GearStore.Areas.Administrator.Controllers
 {
+    [AdminAuthorize]
     public class ProductsController : Controller
     {
         private ElectronicComponentsSMEntities db = new ElectronicComponentsSMEntities();
@@ -81,7 +83,6 @@ namespace GearStore.Areas.Administrator.Controllers
             ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ManufacturerID", "ManufacturerName", product.ManufacturerID);
             return View(product);
         }
-
         // GET: Administrator/Products/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
