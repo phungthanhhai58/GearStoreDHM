@@ -24,8 +24,8 @@ namespace GearStore.Areas.Administrator.Controllers.CustomAttributes
                 using (var dataContext = new ElectronicComponentsSMEntities())
                 {
                     var id = int.Parse(account["ID"]);
-                    var model = dataContext.Customers.Find(id);
-                    if (model.IsDisabled)
+                    var model = dataContext.Employees.Find(id);
+                    if (model.JobTitleID == null)
                     {
                         message = "Tài khoản đã bị khóa";
                         isFailed = true;
@@ -44,12 +44,12 @@ namespace GearStore.Areas.Administrator.Controllers.CustomAttributes
                 userCookie.Expires = DateTime.Now.AddDays(-1);
                 filterContext.HttpContext.Response.SetCookie(userCookie);
                 filterContext.Controller.TempData["Message"] = message;
-                filterContext.Result = new RedirectResult("/Administrator");
+                filterContext.Result = new RedirectResult("/Administrator/Account/SignIn");
             }
             else if (Order!=-1 && !Check(Order,int.Parse(account["JobID"] ?? "0")))
             {
                 filterContext.Controller.TempData["Message"] = "Bạn không có quyền hạn truy cập.";
-                filterContext.Result = new RedirectResult("/Administrator");
+                filterContext.Result = new RedirectResult("/Administrator/Account/SignIn");
             }
         }
         private static bool Check(int Order, int JobID)

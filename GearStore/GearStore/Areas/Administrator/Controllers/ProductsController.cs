@@ -14,18 +14,33 @@ using GearStore.Areas.Administrator.Controllers.CustomAttributes;
 
 namespace GearStore.Areas.Administrator.Controllers
 {
-    [AdminAuthorize]
     public class ProductsController : Controller
     {
         private ElectronicComponentsSMEntities db = new ElectronicComponentsSMEntities();
 
         // GET: Administrator/Products
-        public async Task<ActionResult> Index()
+        [AdminAuthorize]
+        public async Task<ActionResult> Index(int? page)
         {
+            if (page < 1)
+            {
+                return RedirectToAction(nameof(Index));
+            }
             var products = db.Products.Include(p => p.Category).Include(p => p.Manufacturer);
-            return View(await products.ToListAsync());
+            var count = products.Count();
+            var n = 10;
+            var maxPage = count % n == 0 ? count / n : count / n + 1;
+            page = page ?? 1;
+            if (page > maxPage && count != 0)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.MaxPage = maxPage;
+            ViewBag.NowPage = page;
+            var skip = page.Value * n - n;
+            return View(await products.OrderByDescending(p => p.UpdatedDate).Skip(skip).Take(n).ToListAsync());
         }
-
+        [AdminAuthorize]
         // GET: Administrator/Products/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -40,7 +55,7 @@ namespace GearStore.Areas.Administrator.Controllers
             }
             return View(product);
         }
-
+        [AdminAuthorize(Order = 2)]
         // GET: Administrator/Products/Create
         public ActionResult Create()
         {
@@ -52,6 +67,7 @@ namespace GearStore.Areas.Administrator.Controllers
         // POST: Administrator/Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [AdminAuthorize(Order = 2)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProductViewModel product)
@@ -83,6 +99,7 @@ namespace GearStore.Areas.Administrator.Controllers
             ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ManufacturerID", "ManufacturerName", product.ManufacturerID);
             return View(product);
         }
+        [AdminAuthorize(Order = 2)]
         // GET: Administrator/Products/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -114,7 +131,7 @@ namespace GearStore.Areas.Administrator.Controllers
                 Details = product.Details,
             });
         }
-
+        [AdminAuthorize(Order = 2)]
         // POST: Administrator/Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -154,7 +171,7 @@ namespace GearStore.Areas.Administrator.Controllers
             ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ManufacturerID", "ManufacturerName", product.ManufacturerID);
             return View(product);
         }
-
+        [AdminAuthorize(Order = 2)]
         // GET: Administrator/Products/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
@@ -169,7 +186,7 @@ namespace GearStore.Areas.Administrator.Controllers
             }
             return View(product);
         }
-
+        [AdminAuthorize(Order = 2)]
         // POST: Administrator/Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

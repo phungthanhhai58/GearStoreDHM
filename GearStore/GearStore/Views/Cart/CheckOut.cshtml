@@ -1,7 +1,9 @@
 ﻿@model GearStore.Models.CartViewModel
+
 @{
     ViewBag.Title = "Checkout";
 }
+
 <!-- site__body -->
 <div class="site__body">
     <div class="page-header">
@@ -19,7 +21,7 @@
                             <h3 class="card-title">Your Order</h3>
                             @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
                             {
-                                <span class="text-danger">@ViewBag.Message</span>
+                                <span class="text-danger">@ViewBag.Message</span><a href="@Url.Action("Index")"> Quay lại.</a>
                             }
                             <table class="checkout__totals">
                                 <thead class="checkout__totals-header">
@@ -33,7 +35,7 @@
                                     {
                                         <tr>
                                             <td>@Html.DisplayFor(modelItem => item.ProductName) × @Html.DisplayFor(modelItem => item.Quantity)</td>
-                                            <td>@String.Format("{0:N0}", item.Total) VNĐ</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Total)</td>
                                         </tr>
                                     }
                                 </tbody>
@@ -80,19 +82,22 @@
                         </div>
                     </div>
                 </div>
+                @{
+                    var account = ViewBag.Account as GearStore.Models.Customer;
+                }
                 <div class="col-lg-6">
                     <div class="card mb-lg-0">
                         <div class="card-body">
                             <h3 class="card-title">Billing details</h3>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="checkout-first-name">Name: @ViewBag.Account.FullName</label>
+                                    <label for="checkout-first-name">Name: @account.FullName</label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="checkout-last-name">
                                         Giới tính:
-                                        @if (ViewBag.Account.Gender == true)
-                                            {
+                                        @if (account.Gender)
+                                        {
                                             <span>Nam</span>
                                         }
                                         else
@@ -104,46 +109,29 @@
                             </div>
                             <div class="form-group">
                                 <label for="checkout-city">Ngày Sinh:</label>
-                                <input type="text" class="form-control" id="checkout-city" value="@ViewBag.Account.BirthDate.ToString("dd/MM/yyyy")"disabled>
+                                <input type="text" class="form-control" id="checkout-city" value="@if(account.BirthDate!=null){@account.BirthDate.Value.ToString("dd/MM/yyyy")}" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="checkout-company-name">
                                     Email:
                                 </label>
-                                <input type="text" class="form-control" id="checkout-company-name" value="@ViewBag.Account.Email" disabled>
+                                <input type="text" class="form-control" id="checkout-company-name" value="@account.Email" disabled>
                             </div>
-                            @*<div class="form-group">
-            <label for="checkout-country">Country</label>
-            <select id="checkout-country" class="form-control">
-                <option>Select a country...</option>
-                <option>United States</option>
-                <option>Russia</option>
-                <option>Italy</option>
-                <option>France</option>
-                <option>Ukraine</option>
-                <option>Germany</option>
-                <option>Australia</option>
-            </select>
-        </div>*@
                             <div class="form-group">
                                 <label for="checkout-street-address">Địa Chỉ:</label>
-                                <input type="text" class="form-control" id="checkout-street-address" value="@ViewBag.Account.Address" disabled>
+                                <input type="text" class="form-control" id="checkout-street-address" value="@account.Address" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="checkout-address">Điện Thoại:</label>
-                                <input type="text" class="form-control" id="checkout-address0" value="@ViewBag.Account.PhoneNumber" disabled>
+                                <input type="text" class="form-control" id="checkout-address0" value="@account.PhoneNumber" disabled>
                             </div>
 
-                            
-                            </div>
                         </div>
-                        <div class="card-divider"></div>
-                        <div class="card-body">
-                            <h3 class="card-title">Ghi Chú:</h3>
-                            
-                            <div class="form-group">
-                                <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
-                            </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Ghi Chú:</h3>
+                        <div class="form-group">
+                            <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
                         </div>
                     </div>
                 </div>
@@ -157,5 +145,3 @@
         $("#place-order").toggleClass("disabled");
     });
 </script>
-
-

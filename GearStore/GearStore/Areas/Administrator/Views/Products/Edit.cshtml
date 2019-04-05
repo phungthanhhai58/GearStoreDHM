@@ -39,7 +39,7 @@
                                 <label for="ManufacturerID">
                                     @Html.DisplayNameFor(model => model.ManufacturerID)
                                 </label>
-                                @Html.DropDownList("ManufacturerID", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                                @Html.DropDownList("ManufacturerID", null, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ManufacturerID, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -91,7 +91,14 @@
                         <div class="col-md-2">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input id="Discontinued" name="Discontinued" class="form-check-input" type="checkbox" value="true">
+                                    @if (Model.Discontinued)
+                                    {
+                                        <input id="Discontinued" name="Discontinued" class="form-check-input" checked type="checkbox" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input id="Discontinued" name="Discontinued" class="form-check-input" type="checkbox" value="true">
+                                    }
                                     @Html.DisplayNameFor(model => model.Discontinued)
                                     <span class="form-check-sign">
                                         <span class="check"></span>

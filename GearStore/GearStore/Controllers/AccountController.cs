@@ -22,7 +22,7 @@ namespace GearStore.Controllers
         }
         [HttpPost, ActionName("SignIn")]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn([Bind(Include = "Username, Password")] SignInViewModel account, string returnUrl)
+        public ActionResult SignIn([Bind(Include = "Username, Password")] SignInViewModel account,string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace GearStore.Controllers
                     return View(account);
                 }
                 HttpCookie userCookie = new HttpCookie("Account", account.Username);
-                userCookie["ID"] = isValid.CustomerID.ToString();               
+                userCookie["ID"] = isValid.CustomerID.ToString();
                 userCookie["Username"] = account.Username;
                 userCookie["Password"] = account.Password;
                 userCookie.Expires = DateTime.Now.AddDays(1);
@@ -108,7 +108,7 @@ namespace GearStore.Controllers
             });
         }
         [UserAuthorize]
-        [HttpPost, ActionName("Details")]
+        [HttpPost,ActionName("Details")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> UpdateDetails(AcccountDetailsViewModel account)
         {
@@ -122,7 +122,7 @@ namespace GearStore.Controllers
                 obj.PhoneNumber = account.PhoneNumber;
                 obj.Address = account.Address;
                 await _dataContext.SaveChangesAsync();
-                return View(nameof(Details), account);
+                return View(nameof(Details),account);
             }
             return View(account);
         }

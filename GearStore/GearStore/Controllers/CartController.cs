@@ -123,10 +123,10 @@ namespace GearStore.Controllers
         {
             if (Session["Cart"] is CartViewModel cart && cart.Items.Count > 0)
             {
-                Session["CheckoutCart"] = cart;
                 var account = Request.Cookies["Account"];
                 var customerID = int.Parse(account["ID"]);
-                ViewBag.Account = _dataContext.Customers.SingleOrDefault(n => n.CustomerID == customerID);
+                ViewBag.Account = _dataContext.Customers.Find(customerID);
+                Session["CheckoutCart"] = cart;
                 return View(cart);
             }
             return RedirectToAction("Index", "Products");

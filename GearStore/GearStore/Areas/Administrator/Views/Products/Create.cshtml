@@ -38,7 +38,7 @@
                                 <label for="ManufacturerID">
                                     @Html.DisplayNameFor(model => model.ManufacturerID)
                                 </label>
-                                @Html.DropDownList("ManufacturerID", null, htmlAttributes: new { @class = "form-control selectpicker" })
+                                @Html.DropDownList("ManufacturerID", null, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.ManufacturerID, "", new { @class = "text-danger" })
                             </div>
                         </div>

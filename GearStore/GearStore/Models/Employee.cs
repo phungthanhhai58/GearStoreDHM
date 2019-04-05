@@ -11,7 +11,8 @@ namespace GearStore.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         public int EmployeeID { get; set; }
@@ -19,6 +20,8 @@ namespace GearStore.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public string FullName { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> BirthDate { get; set; }
         public bool Gender { get; set; }
         public string Address { get; set; }
