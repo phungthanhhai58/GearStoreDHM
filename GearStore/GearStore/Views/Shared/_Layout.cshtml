@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -25,6 +24,16 @@
     <!-- font - stroyka -->
     <link href="~/fonts/stroyka.css" rel="stylesheet" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97489509-6"></script>
+    <!--API Google-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!--React-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script src="~/Scripts/react.min.js"></script>
+    <script src="~/Scripts/react-dom.min.js"></script>
+    <script src="~/Scripts/reactjs/timereact.jsx"></script>
+
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-97489509-6');</script>
 </head>
 <body>
@@ -187,13 +196,11 @@
                                 <a class="topbar-link" href="@Url.Action("Contact","Home")">Liên Hệ</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="#">Vị Trí</a>
+                                <a class="topbar-link" href="@Url.Action("Contact","Home")">Vị Trí</a>
                             </div>
+
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="track-order.html">Kiểm Tra Đơn Hàng</a>
-                            </div>
-                            <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="blog-classic.html">Blog</a>
+                                <a class="topbar-link" href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs">Fanpage</a>
                             </div>
                             <div class="topbar__spring"></div>
                             <div class="topbar__item">
@@ -351,64 +358,6 @@
                                                 <!-- .megamenu / end -->
                                             </div>
                                         </li>
-                                        <li class="nav-links__item nav-links__item--with-submenu">
-                                            <a href="shop-grid-3-columns-sidebar.html">
-                                                <span>
-                                                    Cửa Hàng
-                                                    <svg class="nav-links__arrow" width="9px" height="6px">
-                                                        <use xlink:href="~/images/sprite.svg#arrow-rounded-down-9x6"></use>
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                            <div class="nav-links__menu">
-                                                <!-- .menu -->
-                                                <ul class="menu menu--layout--classic">
-                                                    <li>
-                                                        <a href="shop-grid-3-columns-sidebar.html">
-                                                            Shop Grid
-                                                            <svg class="menu__arrow" width="6px" height="9px">
-                                                                <use xlink:href="~/images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                            </svg>
-                                                        </a>
-                                                        <div class="menu__submenu">
-                                                            <!-- .menu -->
-                                                            <ul class="menu menu--layout--classic">
-                                                                <li><a href="shop-grid-3-columns-sidebar.html">3 Columns Sidebar</a></li>
-                                                                <li><a href="shop-grid-4-columns-full.html">4 Columns Full</a></li>
-                                                                <li><a href="shop-grid-5-columns-full.html">5 Columns Full</a></li>
-                                                            </ul>
-                                                            <!-- .menu / end -->
-                                                        </div>
-                                                    </li>
-                                                    <li><a href="shop-list.html">Shop List</a></li>
-                                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                                    <li>
-                                                        <a href="product.html">
-                                                            Product
-                                                            <svg class="menu__arrow" width="6px" height="9px">
-                                                                <use xlink:href="~/images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                            </svg>
-                                                        </a>
-                                                        <div class="menu__submenu">
-                                                            <!-- .menu -->
-                                                            <ul class="menu menu--layout--classic">
-                                                                <li><a href="product.html">Product</a></li>
-                                                                <li><a href="product-alt.html">Product Alt</a></li>
-                                                                <li><a href="product-sidebar.html">Product Sidebar</a></li>
-                                                            </ul>
-                                                            <!-- .menu / end -->
-                                                        </div>
-                                                    </li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="compare.html">Compare</a></li>
-                                                    <li><a href="account.html">My Account</a></li>
-                                                    <li><a href="track-order.html">Track Order</a></li>
-                                                </ul>
-                                                <!-- .menu / end -->
-                                            </div>
-                                        </li>
                                         <li class="nav-links__item">
                                             <a href="@Url.Action("Contact","Home")">
                                                 <span>Liên Hệ</span>
@@ -418,16 +367,6 @@
                                 </div>
                                 <!-- .nav-links / end -->
                                 <div class="nav-panel__indicators">
-                                    <div class="indicator">
-                                        <a href="wishlist.html" class="indicator__button">
-                                            <span class="indicator__area">
-                                                <svg width="20px" height="20px">
-                                                    <use xlink:href="~/images/sprite.svg#heart-20"></use>
-                                                </svg>
-                                                <span class="indicator__value">0</span>
-                                            </span>
-                                        </a>
-                                    </div>
                                     @Html.Partial("_CartPartial")
                                 </div>
                             </div>
@@ -438,9 +377,7 @@
         </header>
         <!-- desktop site__header / end -->
         <!-- site__body -->
-
         @RenderBody()
-
         <!-- site__body / end -->
         <!-- site__footer -->
         <footer class="site__footer">
@@ -497,32 +434,90 @@
                                         <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address...">
                                         <button class="footer-newsletter__form-button btn btn-primary" style="width:130px">Đăng Ký</button>
                                     </form>
-                                    <div class="footer-newsletter__text footer-newsletter__text--social">Theo Dõi Chúng Tôi Trên Mạng Xã Hội</div>
+                                    <div class="footer-newsletter__text footer-newsletter__text--social">Theo Dõi  và chia sẻ Chúng Tôi Trên Mạng Xã Hội</div>
                                     <ul class="footer-newsletter__social-links">
-                                        <li class="footer-newsletter__social-link footer-newsletter__social-link--facebook">
-                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-facebook-f"></i></a>
+
+                                        <li>
+                                            <div id="fb-root"></div>
+                                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=343326169648123&autoLogAppEvents=1"></script>
+                                            <div class="fb-share-button" data-href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                                        </li>
+
+                                        @*<li class="footer-newsletter__social-link footer-newsletter__social-link--facebook">
+                                                <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            </li>*@
+                                        <li>
+                                            <script src="https://apis.google.com/js/platform.js"></script>
+                                            <div class="g-ytsubscribe" data-channelid="UCn61R23TYFp8KbiNxHSDfbg" data-layout="default" data-count="default"></div>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--twitter">
-                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fab fa-twitter"></i></a>
                                         </li>
-                                        <li class="footer-newsletter__social-link footer-newsletter__social-link--youtube">
-                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-youtube"></i></a>
-                                        </li>
+                                        @*<li class="footer-newsletter__social-link footer-newsletter__social-link--youtube">
+                                                <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fab fa-youtube"></i></a>
+                                            </li>*@
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--instagram">
-                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fab fa-instagram"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--rss">
-                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fas fa-rss"></i></a>
+                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fas fa-rss"></i></a>
+                                        </li>
+                                        <li>
+
                                         </li>
                                     </ul>
+                                    <h5 class="footer-newsletter__title">Fanpage</h5>
+                                    <div id="fb-root"></div>
+                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=343326169648123&autoLogAppEvents=1"></script>
+                                    <div class="fb-page" data-href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517">Gear Xóm Chùa - Thiết bị chơi game hàng đầu Việt Nam</a></blockquote></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="site-footer__bottom">
-                        <div class="site-footer__copyright">
+                        <div class="site-footer__copyright root">
                             &copy; Copyright @DateTime.Now.Year
-                            <a href="#" target="_blank" style="font-weight:bold;"> Gear Xóm Chùa</a>
+                            <a href="" target="_blank" style="font-weight:bold;"> Gear Xóm Chùa</a>
+
+                            <div id="root"></div>
+                            <script type="text/babel">
+                                class Greeting extends React.Component {
+                                constructor(props) {
+
+                                super(props)
+
+                                this.state = {
+                                time: new Date()
+                                }
+
+                                }
+
+                                componentDidMount() {
+
+                                setInterval(this.update, 1000)
+
+                                }
+
+                                update = () => {
+
+                                this.setState({
+                                time: new Date()
+                                })
+
+                                };
+                                render() {
+                                const h = this.state.time.getHours()
+                                const m = this.state.time.getMinutes()
+                                const s = this.state.time.getSeconds()
+                                return (
+                                <p>@DateTime.Now.ToShortDateString().ToString() {h % 12}:{(m < 10 ? '0' + m : m)}:{(s < 10 ? '0' + s : s)} {h < 12 ? 'am' : 'pm'}</p>);
+                                }
+                                }
+                                ReactDOM.render(
+                                <Greeting />,
+                                document.getElementById('root')
+                                );
+                            </script>
                         </div>
                         <div class="site-footer__payments">
                             <img src="~/images/payments.png" alt="">
@@ -533,5 +528,4 @@
         </footer><!-- site__footer / end -->
     </div><!-- site / end -->
 </body>
-
 </html>
