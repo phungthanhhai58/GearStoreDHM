@@ -4,80 +4,119 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Order</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OrderID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Edit</h3>
+                <p class="card-subtitle"></p>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.OrderDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OrderDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ShippedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ShippedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ShippedDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Status)
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsShipped, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsShipped)
-                    @Html.ValidationMessageFor(model => model.IsShipped, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsPaid, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsPaid)
-                    @Html.ValidationMessageFor(model => model.IsPaid, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="card-body">
+                <form action="@Url.Action("Update")" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.OrderID)
+                    @Html.HiddenFor(model => model.CustomerID)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Customer.FullName)
+                                </label>
+                                @Html.EditorFor(model => model.Customer.FullName, new { htmlAttributes = new { @class = "form-control", @readony = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Customer.FullName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Customer.Username)
+                                </label>
+                                @Html.EditorFor(model => model.Customer.Username, new { htmlAttributes = new { @class = "form-control", @readony = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Customer.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.OrderDate)
+                                </label>
+                                @Html.EditorFor(model => model.OrderDate, new { htmlAttributes = new { @class = "form-control", @readony = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.OrderDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.ShippedDate)
+                                </label>
+                                @Html.EditorFor(model => model.ShippedDate, new { htmlAttributes = new { @class = "form-control", @readony = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.ShippedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    @if (Model.IsShipped)
+                                    {
+                                        <input id="IsShipped" name="IsShipped" class="form-check-input" checked type="checkbox" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input id="IsShipped" name="IsShipped" class="form-check-input" type="checkbox" value="true">
+                                    }
+                                    @Html.DisplayNameFor(model => model.IsShipped)
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IsShipped, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    @if (Model.IsPaid)
+                                    {
+                                        <input id="IsPaid" name="IsPaid" class="form-check-input" checked type="checkbox" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input id="IsPaid" name="IsPaid" class="form-check-input" type="checkbox" value="true">
+                                    }
+                                    @Html.DisplayNameFor(model => model.IsPaid)
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IsPaid, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    @if (Model.Status)
+                                    {
+                                        <input id="Status" name="Status" class="form-check-input" checked type="checkbox" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input id="Status" name="Status" class="form-check-input" type="checkbox" value="true">
+                                    }
+                                    @Html.DisplayNameFor(model => model.Status)
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" value="Update" class="btn btn-success" />
+                            <a class="btn btn-outline-primary" href="javascript: window.history.back()">Quay lại</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

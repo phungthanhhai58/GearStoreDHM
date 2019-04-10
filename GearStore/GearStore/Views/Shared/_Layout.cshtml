@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -297,8 +298,8 @@
                     </div>
                     <div class="site-header__search">
                         <div class="search">
-                            <form class="search__form" action="#">
-                                <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                            <form class="search__form" action="@Url.Action("Index","Products")">
+                                <input class="search__input" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Site search" type="text" autocomplete="off">
                                 <button class="search__button" type="submit">
                                     <svg width="20px" height="20px">
                                         <use xlink:href="~/images/sprite.svg#search-20"></use>
@@ -437,7 +438,9 @@
         </header>
         <!-- desktop site__header / end -->
         <!-- site__body -->
+
         @RenderBody()
+
         <!-- site__body / end -->
         <!-- site__footer -->
         <footer class="site__footer">
@@ -488,16 +491,6 @@
                             <div class="col-12 col-md-12 col-lg-4">
                                 <div class="site-footer__widget footer-newsletter">
                                     <h5 class="footer-newsletter__title">Thông báo</h5>
-                                    <div id="fb-root"></div>
-                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2"></script>
-                                    <div class="fb-page" data-href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/" data-tabs="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                                        <blockquote cite="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/" class="fb-xfbml-parse-ignore">
-                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/">
-                                                Gear Xóm Chùa - Thiết bị chơi game hàng đầu Việt Nam
-                                            </a>
-                                        </blockquote>
-                                    </div>
-                                    <h5 class="footer-newsletter__title">Thông báo</h5>
                                     <div class="footer-newsletter__text">Để nhận thêm nhiều ưu đãi và thông tin mới nhất. Đăng ký Email ngay hôm nay:  </div>
                                     <form action="#" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>
@@ -507,19 +500,19 @@
                                     <div class="footer-newsletter__text footer-newsletter__text--social">Theo Dõi Chúng Tôi Trên Mạng Xã Hội</div>
                                     <ul class="footer-newsletter__social-links">
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--facebook">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--twitter">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-twitter"></i></a>
+                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-twitter"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--youtube">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-youtube"></i></a>
+                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-youtube"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--instagram">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fab fa-instagram"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--rss">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fas fa-rss"></i></a>
+                                            <a href="https://themeforest.net/user/kos9" target="_blank"><i class="fas fa-rss"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -540,4 +533,5 @@
         </footer><!-- site__footer / end -->
     </div><!-- site / end -->
 </body>
+
 </html>

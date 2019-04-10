@@ -73,13 +73,20 @@
                                 <div class="product__actions">
                                     <div class="product__actions-item">
                                         <div class="input-number product__quantity">
-                                            <input id="product-quantity" name="quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
+                                            <input id="product-quantity" name="quantity" class="input-number__input form-control form-control-lg" type="number" min="1" max="@Model.UnitsInStock" value="1">
                                             <div class="input-number__add">  </div>
                                             <div class="input-number__sub">  </div>
                                         </div>
                                     </div>
                                     <div class="product__actions-item product__actions-item--addtocart">
-                                        <button class="btn btn-success btn-lg">Đặt hàng</button>
+                                        @if (Model.Discontinued)
+                                        {
+                                            <button type="submit" class="btn btn-success btn-lg" disabled>Đặt hàng</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" class="btn btn-success btn-lg">Đặt hàng</button>
+                                        }
                                         <input type="button" value="Quay lại" class="btn btn-primary btn-lg" onclick="window.history.back()" />
                                     </div>
                                     <div class="product__actions-item product__actions-item--wishlist">

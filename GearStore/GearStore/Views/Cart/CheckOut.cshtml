@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <form action="@Url.Action("Checkout","Cart")" method="post">
-                                <button id="place-order" type="submit" class="btn btn-primary btn-xl btn-block disabled">Place Order</button>
+                                <button id="place-order" type="submit" class="btn btn-primary btn-xl btn-block" disabled>Place Order</button>
                             </form>
                         </div>
                     </div>
@@ -142,6 +142,11 @@
 <!-- site__body / end -->
 <script>
     $("#checkout-terms").click(function () {
-        $("#place-order").toggleClass("disabled");
+        if ($(this).prop("checked")) {
+            $("#place-order").prop("disabled", false);
+        }
+        else {
+            $("#place-order").prop("disabled", true);
+        }
     });
 </script>

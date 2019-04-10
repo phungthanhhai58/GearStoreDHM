@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="34935bb5d48d47de9f4b75b112020e67" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Category" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Customer" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Employee" Width="1.5" PointX="10" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.JobTitle" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Manufacturer" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Menu" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.OrderDetail" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Order" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Product" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ElectronicComponentsSMModel.sysdiagram" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Categories_Menus" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Orders_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Employees_JobTitles" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Products_Manufacturers" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
-        <AssociationConnector Association="ElectronicComponentsSMModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+      <Diagram DiagramId="34935bb5d48d47de9f4b75b112020e67" Name="Diagram1" ZoomLevel="61">
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Category" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Customer" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Employee" Width="1.5" PointX="10" PointY="7.5" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.JobTitle" Width="1.5" PointX="7.75" PointY="8.375" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Manufacturer" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Menu" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.OrderDetail" Width="1.5" PointX="7.5" PointY="3.5" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Order" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.Product" Width="1.5" PointX="5.25" PointY="2.625" />
+        <EntityTypeShape EntityType="ElectronicComponentsSMModel.sysdiagram" Width="1.5" PointX="9.75" PointY="2.375" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Categories_Menus" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Products_Categories" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Orders_Customers" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Employees_JobTitles" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_Products_Manufacturers" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_OrderDetails_Orders" />
+        <AssociationConnector Association="ElectronicComponentsSMModel.FK_OrderDetails_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

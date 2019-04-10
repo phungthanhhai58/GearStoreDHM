@@ -1,0 +1,147 @@
+﻿@model GearStore.Models.CartViewModel
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<!-- site__body -->
+<div class="site__body">
+    <div class="page-header">
+        <div class="page-header__container container">
+            <div class="page-header__breadcrumb">
+            </div><div class="page-header__title"><h1>Checkout</h1></div>
+        </div>
+    </div>
+    <div class="checkout block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <h3 class="card-title">Your Order</h3>
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.Message))
+                            {
+                                <span class="text-danger">@ViewBag.Message</span><a href="@Url.Action("Index")"> Quay lại.</a>
+                            }
+                            <table class="checkout__totals">
+                                <thead class="checkout__totals-header">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Items[0].ProductName)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Items[0].Total)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="checkout__totals-products">
+                                    @foreach (var item in Model.Items)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.ProductName) × @Html.DisplayFor(modelItem => item.Quantity)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tbody class="checkout__totals-subtotals">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Subtotal)</th>
+                                        <td>@Html.DisplayFor(model => model.Subtotal)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Tax)</th>
+                                        <td>@Html.DisplayFor(model => model.Tax)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Shipping)</th>
+                                        <td>@Html.DisplayFor(model => model.Shipping)</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="checkout__totals-footer">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Total)</th>
+                                        <td>@Html.DisplayFor(model => model.Total)</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="checkout__agree form-group">
+                                <div class="form-check">
+                                    <span class="form-check-input input-check">
+                                        <span class="input-check__body">
+                                            <input class="input-check__input" type="checkbox" id="checkout-terms">
+                                            <span class="input-check__box"></span>
+                                            <svg class="input-check__icon" width="9px" height="7px">
+                                                <use xlink:href="images/sprite.svg#check-9x7"></use>
+                                            </svg>
+                                        </span>
+                                    </span><label class="form-check-label" for="checkout-terms">
+                                        I have read and agree to the website
+                                        <a target="_blank" href="terms-and-conditions.html">terms and conditions</a>*
+                                    </label>
+                                </div>
+                            </div>
+                            <form action="@Url.Action("Checkout","Cart")" method="post">
+                                <button id="place-order" type="submit" class="btn btn-primary btn-xl btn-block disabled">Place Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @{
+                    var account = ViewBag.Account as GearStore.Models.Customer;
+                }
+                <div class="col-lg-6">
+                    <div class="card mb-lg-0">
+                        <div class="card-body">
+                            <h3 class="card-title">Billing details</h3>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-first-name">Name: @account.FullName</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-last-name">
+                                        Giới tính:
+                                        @if (account.Gender)
+                                        {
+                                            <span>Nam</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Nữ</span>
+                                        }
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-city">Ngày Sinh:</label>
+                                <input type="text" class="form-control" id="checkout-city" value="@if(account.BirthDate!=null){@account.BirthDate.Value.ToString("dd/MM/yyyy")}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-company-name">
+                                    Email:
+                                </label>
+                                <input type="text" class="form-control" id="checkout-company-name" value="@account.Email" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-street-address">Địa Chỉ:</label>
+                                <input type="text" class="form-control" id="checkout-street-address" value="@account.Address" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-address">Điện Thoại:</label>
+                                <input type="text" class="form-control" id="checkout-address0" value="@account.PhoneNumber" disabled>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Ghi Chú:</h3>
+                        <div class="form-group">
+                            <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- site__body / end -->
+<script>
+    $("#checkout-terms").click(function () {
+        $("#place-order").toggleClass("disabled");
+    });
+</script>

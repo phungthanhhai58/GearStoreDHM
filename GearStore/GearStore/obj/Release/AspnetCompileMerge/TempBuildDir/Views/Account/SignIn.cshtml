@@ -22,6 +22,7 @@
                             <h2 class="card-title" style="text-align:center">Đăng Nhập</h2>
                             <hr />
                             <form action="@Url.Action("SignIn","Account")" method="post">
+                                <input type="text" name="returnUrl" value="@ViewBag.ReturnUrl" hidden />
                                 @Html.AntiForgeryToken()
                                 <div class="form-horizontal">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })

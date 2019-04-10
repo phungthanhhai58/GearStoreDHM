@@ -16,7 +16,7 @@ namespace GearStore.Controllers
         private ElectronicComponentsSMEntities _dataContext = new ElectronicComponentsSMEntities();
 
         // GET: Products
-        public async Task<ActionResult> Index(int? page, int? menu, int? category, int? manufacturer)
+        public async Task<ActionResult> Index(int? page, int? menu, int? category, int? manufacturer,string search)
         {
             if (page < 1)
             {
@@ -35,6 +35,10 @@ namespace GearStore.Controllers
             {
                 products = products.Where(p => p.ManufacturerID == manufacturer.Value);
             }
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                products = products.Where(p => p.ProductName.Contains(search));
+            }
             var count = products.Count();
             var n = 8;
             var maxPage = count % n == 0 ? count / n : count / n + 1;
@@ -48,6 +52,7 @@ namespace GearStore.Controllers
             ViewBag.Menu = menu;
             ViewBag.Category = category;
             ViewBag.Manufacturer = manufacturer;
+            ViewBag.Search = search;
             var skip = page.Value * n - n;
             return View(await products.OrderByDescending(p => p.UpdatedDate).Skip(skip).Take(n).ToListAsync());
         }

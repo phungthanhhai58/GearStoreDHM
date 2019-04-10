@@ -6,9 +6,723 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>bin\Release\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="Areas/Administrator/Assets/css/material-dashboard-rtl.css">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/css/material-dashboard.css">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/css/material-dashboard.css.map">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/css/material-dashboard.min.css">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/angular.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/apple-icon.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/cover.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/ex1.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/ex2.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/ex3.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/faces/avatar.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/faces/card-profile1-square.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/faces/card-profile2-square.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/faces/marc.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/favicon.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/html.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/imac1.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/ipad.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/iPad2.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/iphonex.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/Macbook.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/mask.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/new_logo.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/noimage.jpg">
+      <publishTime>03/30/2019 17:38:53</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/notification.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/react.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/sidebar-1.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/sidebar-2.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/sidebar-3.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/sidebar-4.jpg">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/table.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/img/vue.png">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/core/bootstrap-material-design.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/core/jquery.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/core/popper.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/material-dashboard.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/material-dashboard.js.map">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/material-dashboard.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/arrive.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/bootstrap-datetimepicker.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/bootstrap-notify.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/bootstrap-selectpicker.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/bootstrap-tagsinput.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/chartist.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/fullcalendar.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jasny-bootstrap.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jquery-jvectormap.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jquery.bootstrap-wizard.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jquery.dataTables.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jquery.tagsinput.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/jquery.validate.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/moment.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/nouislider.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/perfect-scrollbar.jquery.min.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/js/plugins/sweetalert2.js">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/bootstrap-grid.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/bootstrap-reboot.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/bootstrap.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_alert.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_background-variant.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_badge.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_border-radius.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_box-shadow.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_breakpoints.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_buttons.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_caret.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_clearfix.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_float.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_forms.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_gradients.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_grid-framework.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_grid.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_hover.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_image.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_list-group.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_lists.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_nav-divider.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_navbar-align.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_pagination.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_reset-text.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_resize.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_screen-reader.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_size.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_table-row.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_text-emphasis.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_text-hide.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_text-truncate.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_transition.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/mixins/_visibility.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_align.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_background.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_borders.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_clearfix.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_display.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_embed.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_flex.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_float.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_position.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_screenreaders.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_sizing.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_spacing.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_text.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/utilities/_visibility.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_alert.scss">
+      <publishTime>03/30/2019 00:02:40</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_badge.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_breadcrumb.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_button-group.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_buttons.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_card.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_carousel.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_close.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_code.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_custom-forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_dropdown.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_functions.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_grid.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_images.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_input-group.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_jumbotron.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_list-group.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_media.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_mixins.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_modal.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_nav.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_navbar.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_pagination.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_popover.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_print.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_progress.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_reboot.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_root.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_tables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_tooltip.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_transitions.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_type.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_utilities.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/bootstrap/scss/_variables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/cards/_card-plain.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/cards/_card-profile.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/cards/_card-stats.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_alert.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_animations.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_breakpoints.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_buttons.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_chartist.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_colored-shadows.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_drawer.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_hover.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_layout.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_navbar-colors.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_navs.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_sidebar-color.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_transparency.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_type.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_utilities.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_variables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/mixins/_vendor-prefixes.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/plugins/_animate.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/plugins/_chartist.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/plugins/_perfect-scrollbar.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_body.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_bootstrap-material-design-base.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_bootstrap-material-design.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_brand.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_buttons.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_card.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_code.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_colors-map.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_colors.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_custom-forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_drawer.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_dropdown.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_layout.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_list-group.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_menu.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_modals.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_nav.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_pagination.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_shadow.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_snackbar.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_spacing.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_state.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_tables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_tooltip.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/variables/_type.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_alerts.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_buttons.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_cards.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_checkboxes.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_core-bootstrap.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_dropdown.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_example-pages.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_fixed-plugin.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_footers.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_forms.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_headers.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_images.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_info-areas.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_input-group.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_misc.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_mixins.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_navbar.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_popover.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_popups.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_radios.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_responsive.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_ripples.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_sidebar-and-main-panel.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_social-buttons.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_tables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_tabs.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_togglebutton.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_tooltip.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_type.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Assets/scss/material-dashboard/_variables.scss">
+      <publishTime>03/30/2019 00:02:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Account/SignIn.cshtml">
+      <publishTime>04/02/2019 11:07:05</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Employees/Create.cshtml">
+      <publishTime>04/02/2019 11:29:16</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Employees/Delete.cshtml">
+      <publishTime>04/02/2019 11:13:16</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Employees/Details.cshtml">
+      <publishTime>04/02/2019 11:11:52</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Employees/Edit.cshtml">
+      <publishTime>04/02/2019 11:34:53</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Employees/Index.cshtml">
+      <publishTime>04/02/2019 12:01:42</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Home/Index.cshtml">
+      <publishTime>03/31/2019 16:04:22</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Orders/Details.cshtml">
+      <publishTime>04/02/2019 12:07:03</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Orders/Index.cshtml">
+      <publishTime>04/02/2019 12:17:38</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Orders/Update.cshtml">
+      <publishTime>04/02/2019 12:07:04</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Products/Create.cshtml">
+      <publishTime>04/01/2019 21:06:13</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Products/Delete.cshtml">
+      <publishTime>03/30/2019 19:30:09</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Products/Details.cshtml">
+      <publishTime>03/30/2019 14:43:41</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Products/Edit.cshtml">
+      <publishTime>04/01/2019 21:28:28</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Products/Index.cshtml">
+      <publishTime>04/02/2019 11:59:13</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Shared/_Layout.cshtml">
+      <publishTime>04/02/2019 11:39:04</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/Shared/_LoginPartial.cshtml">
+      <publishTime>04/02/2019 11:09:33</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/web.config">
+      <publishTime>03/29/2019 22:18:21</publishTime>
+    </File>
+    <File Include="Areas/Administrator/Views/_ViewStart.cshtml">
+      <publishTime>03/30/2019 00:04:23</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>03/14/2019 08:29:32</publishTime>
     </File>
@@ -16,10 +730,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2019 08:29:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/28/2019 19:30:48</publishTime>
+      <publishTime>04/04/2019 15:17:40</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/28/2019 19:30:48</publishTime>
+      <publishTime>04/04/2019 15:17:40</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
@@ -28,10 +742,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/GearStore.dll">
-      <publishTime>03/28/2019 19:30:41</publishTime>
+      <publishTime>04/04/2019 15:19:53</publishTime>
     </File>
     <File Include="bin/GearStore.pdb">
-      <publishTime>03/28/2019 19:30:41</publishTime>
+      <publishTime>04/04/2019 15:19:53</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
       <publishTime>03/14/2019 08:31:14</publishTime>
@@ -613,10 +1327,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2019 08:29:40</publishTime>
     </File>
     <File Include="Models/Model.edmx.diagram">
-      <publishTime>03/28/2019 19:22:51</publishTime>
+      <publishTime>03/30/2019 22:02:28</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/28/2019 19:30:43</publishTime>
+      <publishTime>04/04/2019 15:17:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>03/14/2019 08:28:58</publishTime>
@@ -744,32 +1458,47 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="vendor/svg4everybody-2.1.9/svg4everybody.min.js">
       <publishTime>03/14/2019 08:29:34</publishTime>
     </File>
+    <File Include="Views/Account/Details.cshtml">
+      <publishTime>04/04/2019 13:55:27</publishTime>
+    </File>
     <File Include="Views/Account/SignIn.cshtml">
-      <publishTime>03/22/2019 20:47:04</publishTime>
+      <publishTime>03/30/2019 11:59:09</publishTime>
     </File>
     <File Include="Views/Account/SignUp.cshtml">
-      <publishTime>03/18/2019 19:00:39</publishTime>
+      <publishTime>03/28/2019 22:41:29</publishTime>
+    </File>
+    <File Include="Views/Cart/Checkout.cshtml">
+      <publishTime>04/04/2019 13:45:09</publishTime>
     </File>
     <File Include="Views/Cart/Index.cshtml">
-      <publishTime>03/28/2019 19:11:48</publishTime>
+      <publishTime>04/01/2019 16:08:05</publishTime>
+    </File>
+    <File Include="Views/Cart/IsCheckout.cshtml">
+      <publishTime>04/04/2019 13:56:01</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>03/20/2019 23:48:09</publishTime>
+    </File>
+    <File Include="Views/Home/BestSeller.cshtml">
+      <publishTime>03/31/2019 12:19:07</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>03/20/2019 23:48:47</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/28/2019 19:10:43</publishTime>
+      <publishTime>03/31/2019 12:19:42</publishTime>
     </File>
     <File Include="Views/Home/Menu.cshtml">
       <publishTime>03/18/2019 10:42:44</publishTime>
     </File>
+    <File Include="Views/Home/MenuMobile.cshtml">
+      <publishTime>03/30/2019 10:49:38</publishTime>
+    </File>
     <File Include="Views/Products/Details.cshtml">
-      <publishTime>03/28/2019 19:21:39</publishTime>
+      <publishTime>04/01/2019 10:57:10</publishTime>
     </File>
     <File Include="Views/Products/Index.cshtml">
-      <publishTime>03/28/2019 19:10:05</publishTime>
+      <publishTime>03/31/2019 12:20:12</publishTime>
     </File>
     <File Include="Views/Products/MyCart.cshtml">
       <publishTime>03/25/2019 23:14:47</publishTime>
@@ -778,13 +1507,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2019 08:29:32</publishTime>
     </File>
     <File Include="Views/Shared/_CartPartial.cshtml">
-      <publishTime>03/28/2019 19:09:50</publishTime>
+      <publishTime>04/01/2019 10:32:11</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/27/2019 23:55:29</publishTime>
+      <publishTime>03/30/2019 11:00:41</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginMobileParitial.cshtml">
+      <publishTime>03/31/2019 18:55:37</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>03/21/2019 16:37:29</publishTime>
+      <publishTime>03/31/2019 18:55:46</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/14/2019 08:28:56</publishTime>
@@ -793,7 +1525,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2019 08:28:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/26/2019 21:58:58</publishTime>
+      <publishTime>04/04/2019 15:19:54</publishTime>
     </File>
   </ItemGroup>
 </Project>

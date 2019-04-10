@@ -3,12 +3,12 @@
 }
 @if (account == null)
 {
-    <li><a href="@Url.Action("SignIn","Account")">Đăng Nhập</a></li>
-    <li><a href="@Url.Action("SignUp","Account")">Đăng Kí</a></li>
+    <li><a href="@Url.Action("SignIn","Account",new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })">Đăng nhập</a></li>
+    <li><a href="@Url.Action("SignUp","Account")">Đăng kí</a></li>
 }
 else
 {
     <li><a href="@Url.Action("Details","Account")">@account["Username"]</a></li>
-    <li><a href="@Url.Action("SignOut","Account")">Đăng Xuất</a></li>
+    <li><a href="@Url.Action("SignOut","Account")">Đăng xuất</a></li>
 }
-<li><a href="#">Đơn Hàng</a></li>
+<li><a href="#">Đơn hàng</a></li>

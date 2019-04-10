@@ -4,63 +4,66 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Hoá đơn</h3>
+                <p class="card-subtitle">@Html.DisplayNameFor(model => model.OrderID): @Html.DisplayFor(model => model.OrderID)</p>
+            </div>
+            <div class="card-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OrderDate)
+                    </dt>
 
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.OrderDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ShippedDate)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ShippedDate)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ShippedDate)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ShippedDate)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsShipped)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsShipped)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsShipped)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsShipped)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsPaid)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsPaid)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsPaid)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsPaid)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Customer.Username)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Customer.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Customer.Username)
-        </dd>
-
-    </dl>
+                    <dd>
+                        @Html.DisplayFor(model => model.Customer.Username)
+                    </dd>
+                </dl>
+                <a class="btn btn-success" href="@Url.Action("Edit",new { id = Model.OrderID })">Sửa</a>
+                <a class="btn btn-outline-primary" href="javascript: window.history.back()">Quay lại</a>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

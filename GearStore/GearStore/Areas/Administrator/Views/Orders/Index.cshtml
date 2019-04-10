@@ -4,56 +4,132 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShippedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsShipped)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsPaid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.Username)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Danh sách đơn hàng</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.FullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Customer.Username)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrderDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ShippedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsShipped)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IsPaid)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customer.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Customer.Username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ShippedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsShipped)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsPaid)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <a href="@Url.Action("Details", new { id = item.OrderID })" rel="tooltip" data-placement="left" title="Chi tiết" class="btn btn-info btn-simple">
+                                            <i class="material-icons">description</i>
+                                        </a>
+                                        <a href="@Url.Action("Update", new { id = item.OrderID })" rel="tooltip" data-placement="left" title="Sửa" class="btn btn-success btn-simple">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            @{
+                                var maxPage = ViewBag.MaxPage;
+                                var nowPage = ViewBag.NowPage;
+                                var n = 5;
+                                if (nowPage > 1)
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = (nowPage - 1) })">Previous</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                }
+                                for (int i = nowPage - n; i <= nowPage + n; i++)
+                                {
+                                    if (i < 1)
+                                    {
+                                        continue;
+                                    }
+                                    else if (i > maxPage)
+                                    {
+                                        break;
+                                    }
+                                    else if (i == nowPage)
+                                    {
+                                        <li class="page-item active"><a class="page-link" href="@Url.Action("Index",new { page = i })">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = i })">@i</a></li>
+                                    }
+                                }
+                                if (nowPage < maxPage)
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = (nowPage + 1) })">Next</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShippedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsShipped)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPaid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.Username)
-            </td>
-            <td>
-                @Html.ActionLink("Update", "Update", new { id = item.OrderID })
-                @Html.ActionLink("Details", "Details", new { id = item.OrderID })
-            </td>
-        </tr>
-    }
 
-</table>

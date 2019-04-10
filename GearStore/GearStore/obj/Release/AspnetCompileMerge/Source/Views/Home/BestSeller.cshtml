@@ -1,0 +1,81 @@
+﻿@model GearStore.Models.Product
+
+<div class="block-products__featured">
+    <div class="block-products__featured-item">
+        <div class="product-card">
+            <div class="product-card__badges-list"><div class="product-card__badge product-card__badge--hot">Hot</div></div>
+            <div class="product-card__image"><a href="@Url.Action("Details","Products", new { id = Model.ProductID})"><img src="~/images/products/@Model.PhotoFilePatch" alt=""></a></div>
+            <div class="product-card__info">
+                <div class="product-card__name"><a href="@Url.Action("Details","Products", new { id = Model.ProductID})">@Html.DisplayFor(model => model.ProductName)</a></div>
+                <div class="product-card__rating">
+                    <div class="rating">
+                        <div class="rating__body">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (Model.Rating <= i)
+                                {
+                                    <svg class="rating__star" width="13px" height="12px">
+                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                    </svg>
+                                    <div class="rating__star rating__star--only-edge">
+                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div>
+                                        <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <svg class="rating__star rating__star--active" width="13px" height="12px">
+                                        <g class="rating__fill"><use xlink:href="~/images/sprite.svg#star-normal"></use></g>
+                                        <g class="rating__stroke"><use xlink:href="~/images/sprite.svg#star-normal-stroke"></use></g>
+                                    </svg>
+                                    <div class="rating__star rating__star--only-edge rating__star--active">
+                                        <div class="rating__fill"><div class="fake-svg-icon"></div></div>
+                                        <div class="rating__stroke"><div class="fake-svg-icon"></div></div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="product-card__rating-legend">9 Reviews</div>
+                </div>
+                <ul class="product-card__features-list">
+                    <li>Speed: 750 RPM</li>
+                    <li>Power Source: Cordless-Electric</li>
+                    <li>Battery Cell Type: Lithium</li>
+                    <li>Voltage: 20 Volts</li>
+                    <li>Battery Capacity: 2 Ah</li>
+                </ul>
+            </div>
+            <div class="product-card__actions">
+                <div class="product-card__availability">
+                    Availability:
+                    @if (!Model.Discontinued && Model.UnitsInStock > 0)
+                    {
+                        <span class="text-success">In Stock</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Out of Stock</span>
+                    }
+                </div>
+                <div class="product-card__prices">
+                    @String.Format("{0:N0}", Model.Price) VNĐ
+                </div>
+                <form action="@Url.Action("AddToCart","Cart")" method="post" class="product-card__buttons">
+                    <input type="number" name="id" value="@Model.ProductID" hidden />
+                    @if (Model.Discontinued)
+                    {
+                        <button class="btn btn-primary product-card__addtocart" type="submit" disabled>Đặt hàng</button>
+                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="submit" disabled>Đặt hàng</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-primary product-card__addtocart" type="submit">Đặt hàng</button>
+                        <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="submit">Đặt hàng</button>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

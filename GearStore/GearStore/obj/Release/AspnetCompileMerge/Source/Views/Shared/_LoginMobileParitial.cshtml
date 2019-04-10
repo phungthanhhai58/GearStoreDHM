@@ -1,0 +1,34 @@
+﻿@{
+    var account = Request.Cookies["Account"];
+}
+@if (account == null)
+{
+    <li class="mobile-links__item" data-collapse-item>
+        <div class="mobile-links__item-title">
+            <a href="@Url.Action("SignIn","Account",new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })" class="mobile-links__item-link">Đăng nhập</a>
+        </div>
+    </li>
+    <li class="mobile-links__item" data-collapse-item>
+        <div class="mobile-links__item-title">
+            <a href="@Url.Action("SignUp","Home")" class="mobile-links__item-link">Đăng kí</a>
+        </div>
+    </li>
+}
+else
+{
+    <li class="mobile-links__item" data-collapse-item>
+        <div class="mobile-links__item-title">
+            <a href="@Url.Action("Details","Account")" class="mobile-links__item-link">@account["Username"]</a>
+        </div>
+    </li>
+    <li class="mobile-links__item" data-collapse-item>
+        <div class="mobile-links__item-title">
+            <a href="@Url.Action("SignOut","Home")" class="mobile-links__item-link">Đăng xuất</a>
+        </div>
+    </li>
+}
+    <li class="mobile-links__item" data-collapse-item>
+        <div class="mobile-links__item-title">
+            <a href="#" class="mobile-links__item-link">Đơn hàng</a>
+        </div>
+    </li>

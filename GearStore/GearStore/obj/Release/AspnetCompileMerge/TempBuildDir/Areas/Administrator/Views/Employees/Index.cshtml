@@ -1,0 +1,147 @@
+﻿@model IEnumerable<GearStore.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    var jobID = int.Parse(Request.Cookies["AdminAccount"].Values["JobID"]);
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Danh sách nhân viên</h3>
+            </div>
+            <div class="card-body">
+                @if (jobID == 1)
+                {
+                    <a class="btn btn-success" href="@Url.Action("Create")">
+                        Tạo mới nhân viên
+                    </a>
+                }
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Username)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BirthDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Gender)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.JobTitle.Name)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Username)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FullName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BirthDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.JobTitle.Name)
+                                    </td>
+                                    <td class="td-actions text-right">
+                                        <a href="@Url.Action("Details", new { id = item.EmployeeID })" rel="tooltip" data-placement="left" title="Chi tiết" class="btn btn-info btn-simple">
+                                            <i class="material-icons">description</i>
+                                        </a>
+                                        @if (jobID == 1)
+                                        {
+                                            <a href="@Url.Action("Edit", new { id = item.EmployeeID })" rel="tooltip" data-placement="left" title="Sửa" class="btn btn-success btn-simple">
+                                                <i class="material-icons">edit</i>
+                                            </a>
+                                            <a href="@Url.Action("Delete", new { id = item.EmployeeID })" rel="tooltip" data-placement="left" title="Xóa" class="btn btn-danger btn-simple">
+                                                <i class="material-icons">close</i>
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            @{
+                                var maxPage = ViewBag.MaxPage;
+                                var nowPage = ViewBag.NowPage;
+                                var n = 5;
+                                if (nowPage > 1)
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = (nowPage - 1) })">Previous</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                }
+                                for (int i = nowPage - n; i <= nowPage + n; i++)
+                                {
+                                    if (i < 1)
+                                    {
+                                        continue;
+                                    }
+                                    else if (i > maxPage)
+                                    {
+                                        break;
+                                    }
+                                    else if (i == nowPage)
+                                    {
+                                        <li class="page-item active"><a class="page-link" href="@Url.Action("Index",new { page = i })">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = i })">@i</a></li>
+                                    }
+                                }
+                                if (nowPage < maxPage)
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action("Index",new { page = (nowPage + 1) })">Next</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

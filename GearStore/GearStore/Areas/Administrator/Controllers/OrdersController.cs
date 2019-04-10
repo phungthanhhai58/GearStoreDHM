@@ -15,13 +15,28 @@ namespace GearStore.Areas.Administrator.Controllers
     [AdminAuthorize(Order=3)]
     public class OrdersController : Controller
     {
-        private ElectronicComponentsSMEntities db = new ElectronicComponentsSMEntities();
+        private ElectronicComponentsSMEntities _dataContext = new ElectronicComponentsSMEntities();
 
         // GET: Administrator/Orders
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int? page)
         {
-            var orders = db.Orders.Include(o => o.Customer);
-            return View(await orders.ToListAsync());
+            if (page < 1)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            var orders = _dataContext.Orders.Include(e => e.OrderDetails);
+            var count = orders.Count();
+            var n = 10;
+            var maxPage = count % n == 0 ? count / n : count / n + 1;
+            page = page ?? 1;
+            if (page > maxPage && count != 0)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.MaxPage = maxPage;
+            ViewBag.NowPage = page;
+            var skip = page.Value * n - n;
+            return View(await orders.OrderByDescending(p => p.OrderDate).Skip(skip).Take(n).ToListAsync());
         }
 
         // GET: Administrator/Orders/Details/5
@@ -31,7 +46,7 @@ namespace GearStore.Areas.Administrator.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = await db.Orders.FindAsync(id);
+            Order order = await _dataContext.Orders.FindAsync(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -45,12 +60,12 @@ namespace GearStore.Areas.Administrator.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = await db.Orders.FindAsync(id);
+            Order order = await _dataContext.Orders.FindAsync(id);
             if (order == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Username", order.CustomerID);
+            ViewBag.CustomerID = new SelectList(_dataContext.Customers, "CustomerID", "Username", order.CustomerID);
             return View(order);
         }
 
@@ -63,18 +78,18 @@ namespace GearStore.Areas.Administrator.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                _dataContext.Entry(order).State = EntityState.Modified;
+                await _dataContext.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "Username", order.CustomerID);
+            ViewBag.CustomerID = new SelectList(_dataContext.Customers, "CustomerID", "Username", order.CustomerID);
             return View(order);
         }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _dataContext.Dispose();
             }
             base.Dispose(disposing);
         }

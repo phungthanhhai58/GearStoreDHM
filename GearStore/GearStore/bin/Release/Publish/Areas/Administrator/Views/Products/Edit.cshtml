@@ -1,0 +1,142 @@
+﻿@model GearStore.Areas.Administrator.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Create</h3>
+                <p class="card-subtitle">@Html.DisplayNameFor(model => model.ProductID): @Html.DisplayFor(model => model.ProductID)</p>
+            </div>
+            <div class="card-body">
+                <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ProductID)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.ProductName)
+                                </label>
+                                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="CategoryID">
+                                    @Html.DisplayNameFor(model => model.CategoryID)
+                                </label>
+                                @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger selectpicker" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ManufacturerID">
+                                    @Html.DisplayNameFor(model => model.ManufacturerID)
+                                </label>
+                                @Html.DropDownList("ManufacturerID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ManufacturerID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </label>
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                                </label>
+                                @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.UpdatedDate) ("YYYY-MM-dd HH:mm:ss.fff")
+                                </label>
+                                @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.ReorderLevel)
+                                </label>
+                                @Html.EditorFor(model => model.ReorderLevel, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ReorderLevel, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Rating)
+                                </label>
+                                @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    @if (Model.Discontinued)
+                                    {
+                                        <input id="Discontinued" name="Discontinued" class="form-check-input" checked type="checkbox" value="true">
+                                    }
+                                    else
+                                    {
+                                        <input id="Discontinued" name="Discontinued" class="form-check-input" type="checkbox" value="true">
+                                    }
+                                    @Html.DisplayNameFor(model => model.Discontinued)
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Discontinued, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </label>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                <label class="bmd-label-floating">
+                                    @Html.DisplayNameFor(model => model.Details)
+                                </label>
+                                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            @Html.HiddenFor(model => model.PhotoFilePatch)
+                            <img src="~/images/products/@Model.PhotoFilePatch" style="width:400px" />
+                            <input type="file" id="UploadImage" name="UploadImage" multiple="">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" value="Edit" class="btn btn-success" />
+                            <a class="btn btn-outline-primary" href="javascript: window.history.back()">Quay lại</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

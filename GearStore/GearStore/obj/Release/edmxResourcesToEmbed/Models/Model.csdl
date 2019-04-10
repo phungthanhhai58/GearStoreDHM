@@ -1,71 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ElectronicComponentsSMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ElectronicComponentsSMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="ElectronicComponentsSMModel.Category" />
+    <EntitySet Name="Customers" EntityType="ElectronicComponentsSMModel.Customer" />
+    <EntitySet Name="Employees" EntityType="ElectronicComponentsSMModel.Employee" />
+    <EntitySet Name="JobTitles" EntityType="ElectronicComponentsSMModel.JobTitle" />
+    <EntitySet Name="Manufacturers" EntityType="ElectronicComponentsSMModel.Manufacturer" />
+    <EntitySet Name="Menus" EntityType="ElectronicComponentsSMModel.Menu" />
+    <EntitySet Name="OrderDetails" EntityType="ElectronicComponentsSMModel.OrderDetail" />
+    <EntitySet Name="Orders" EntityType="ElectronicComponentsSMModel.Order" />
+    <EntitySet Name="Products" EntityType="ElectronicComponentsSMModel.Product" />
+    <EntitySet Name="sysdiagrams" EntityType="ElectronicComponentsSMModel.sysdiagram" />
+    <AssociationSet Name="FK_Categories_Menus" Association="ElectronicComponentsSMModel.FK_Categories_Menus">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Categories" Association="ElectronicComponentsSMModel.FK_Products_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Customers" Association="ElectronicComponentsSMModel.FK_Orders_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_JobTitles" Association="ElectronicComponentsSMModel.FK_Employees_JobTitles">
+      <End Role="JobTitle" EntitySet="JobTitles" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Manufacturers" Association="ElectronicComponentsSMModel.FK_Products_Manufacturers">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Orders" Association="ElectronicComponentsSMModel.FK_OrderDetails_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Products" Association="ElectronicComponentsSMModel.FK_OrderDetails_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Category">
     <Key>
       <PropertyRef Name="CategoryID" />
     </Key>
     <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MenuID" Type="Int32" />
-    <NavigationProperty Name="Menu" Relationship="Self.FK_Categories_Menus" FromRole="Categories" ToRole="Menus" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="ElectronicComponentsSMModel.FK_Categories_Menus" FromRole="Category" ToRole="Menu" />
+    <NavigationProperty Name="Products" Relationship="ElectronicComponentsSMModel.FK_Products_Categories" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="CustomerID" />
     </Key>
     <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="Gender" Type="Boolean" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+    <NavigationProperty Name="Orders" Relationship="ElectronicComponentsSMModel.FK_Orders_Customers" FromRole="Customer" ToRole="Order" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="Gender" Type="Boolean" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
     <Property Name="JobTitleID" Type="Int32" />
-    <NavigationProperty Name="JobTitle" Relationship="Self.FK_Employees_JobTitles" FromRole="Employees" ToRole="JobTitles" />
+    <NavigationProperty Name="JobTitle" Relationship="ElectronicComponentsSMModel.FK_Employees_JobTitles" FromRole="Employee" ToRole="JobTitle" />
   </EntityType>
   <EntityType Name="JobTitle">
     <Key>
       <PropertyRef Name="JobTitleID" />
     </Key>
     <Property Name="JobTitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_JobTitles" FromRole="JobTitles" ToRole="Employees" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="ElectronicComponentsSMModel.FK_Employees_JobTitles" FromRole="JobTitle" ToRole="Employee" />
   </EntityType>
   <EntityType Name="Manufacturer">
     <Key>
       <PropertyRef Name="ManufacturerID" />
     </Key>
     <Property Name="ManufacturerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ManufacturerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ManufacturerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Manufacturers" FromRole="Manufacturers" ToRole="Products" />
+    <NavigationProperty Name="Products" Relationship="ElectronicComponentsSMModel.FK_Products_Manufacturers" FromRole="Manufacturer" ToRole="Product" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
       <PropertyRef Name="MenuID" />
     </Key>
     <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_Menus" FromRole="Menus" ToRole="Categories" />
+    <Property Name="MenuName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Categories" Relationship="ElectronicComponentsSMModel.FK_Categories_Menus" FromRole="Menu" ToRole="Category" />
   </EntityType>
   <EntityType Name="OrderDetail">
     <Key>
@@ -74,10 +114,10 @@
     </Key>
     <Property Name="OrderID" Type="Int32" Nullable="false" />
     <Property Name="ProductID" Type="Int32" Nullable="false" />
-    <Property Name="Quantity" Type="Int32" />
-    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <NavigationProperty Name="Order" Relationship="ElectronicComponentsSMModel.FK_OrderDetails_Orders" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="ElectronicComponentsSMModel.FK_OrderDetails_Products" FromRole="OrderDetail" ToRole="Product" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -90,162 +130,122 @@
     <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="IsShipped" Type="Boolean" Nullable="false" />
     <Property Name="IsPaid" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Customer" Relationship="Self.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Orders" FromRole="Orders" ToRole="OrderDetails" />
+    <NavigationProperty Name="Customer" Relationship="ElectronicComponentsSMModel.FK_Orders_Customers" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="OrderDetails" Relationship="ElectronicComponentsSMModel.FK_OrderDetails_Orders" FromRole="Order" ToRole="OrderDetail" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductID" />
     </Key>
     <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CategoryID" Type="Int32" Nullable="false" />
     <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
-    <Property Name="PhotoFilePatch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="UnitsInStock" Type="Int32" />
-    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="PhotoFilePatch" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnitsInStock" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ReorderLevel" Type="Int32" Nullable="false" />
     <Property Name="Rating" Type="Byte" Nullable="false" />
     <Property Name="Discontinued" Type="Boolean" Nullable="false" />
     <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
-    <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
+    <NavigationProperty Name="Category" Relationship="ElectronicComponentsSMModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Manufacturer" Relationship="ElectronicComponentsSMModel.FK_Products_Manufacturers" FromRole="Product" ToRole="Manufacturer" />
+    <NavigationProperty Name="OrderDetails" Relationship="ElectronicComponentsSMModel.FK_OrderDetails_Products" FromRole="Product" ToRole="OrderDetail" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_Categories_Menus">
-    <End Role="Menus" Type="Self.Menu" Multiplicity="0..1" />
-    <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.Category" Role="Category" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Menus">
+      <Principal Role="Menu">
         <PropertyRef Name="MenuID" />
       </Principal>
-      <Dependent Role="Categories">
+      <Dependent Role="Category">
         <PropertyRef Name="MenuID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Categories">
-    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
-    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categories">
+      <Principal Role="Category">
         <PropertyRef Name="CategoryID" />
       </Principal>
-      <Dependent Role="Products">
+      <Dependent Role="Product">
         <PropertyRef Name="CategoryID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Orders_Customers">
-    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
-    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Customers">
+      <Principal Role="Customer">
         <PropertyRef Name="CustomerID" />
       </Principal>
-      <Dependent Role="Orders">
+      <Dependent Role="Order">
         <PropertyRef Name="CustomerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Employees_JobTitles">
-    <End Role="JobTitles" Type="Self.JobTitle" Multiplicity="0..1" />
-    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.JobTitle" Role="JobTitle" Multiplicity="0..1" />
+    <End Type="ElectronicComponentsSMModel.Employee" Role="Employee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="JobTitles">
+      <Principal Role="JobTitle">
         <PropertyRef Name="JobTitleID" />
       </Principal>
-      <Dependent Role="Employees">
+      <Dependent Role="Employee">
         <PropertyRef Name="JobTitleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Manufacturers">
-    <End Role="Manufacturers" Type="Self.Manufacturer" Multiplicity="1" />
-    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Manufacturer" Role="Manufacturer" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Manufacturers">
+      <Principal Role="Manufacturer">
         <PropertyRef Name="ManufacturerID" />
       </Principal>
-      <Dependent Role="Products">
+      <Dependent Role="Product">
         <PropertyRef Name="ManufacturerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_Orders">
-    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Orders">
+      <Principal Role="Order">
         <PropertyRef Name="OrderID" />
       </Principal>
-      <Dependent Role="OrderDetails">
+      <Dependent Role="OrderDetail">
         <PropertyRef Name="OrderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_Products">
-    <End Role="Products" Type="Self.Product" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+    <End Type="ElectronicComponentsSMModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ElectronicComponentsSMModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Products">
+      <Principal Role="Product">
         <PropertyRef Name="ProductID" />
       </Principal>
-      <Dependent Role="OrderDetails">
+      <Dependent Role="OrderDetail">
         <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ElectronicComponentsSMEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Customers" EntityType="Self.Customer" />
-    <EntitySet Name="Employees" EntityType="Self.Employee" />
-    <EntitySet Name="JobTitles" EntityType="Self.JobTitle" />
-    <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
-    <EntitySet Name="Menus" EntityType="Self.Menu" />
-    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <AssociationSet Name="FK_Categories_Menus" Association="Self.FK_Categories_Menus">
-      <End Role="Menus" EntitySet="Menus" />
-      <End Role="Categories" EntitySet="Categories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
-      <End Role="Categories" EntitySet="Categories" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
-      <End Role="Customers" EntitySet="Customers" />
-      <End Role="Orders" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Employees_JobTitles" Association="Self.FK_Employees_JobTitles">
-      <End Role="JobTitles" EntitySet="JobTitles" />
-      <End Role="Employees" EntitySet="Employees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Manufacturers" Association="Self.FK_Products_Manufacturers">
-      <End Role="Manufacturers" EntitySet="Manufacturers" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_Orders" Association="Self.FK_OrderDetails_Orders">
-      <End Role="Orders" EntitySet="Orders" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_Products" Association="Self.FK_OrderDetails_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
