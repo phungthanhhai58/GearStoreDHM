@@ -1,0 +1,37 @@
+<script>
+    $(function() {
+      // Thực thi các yêu cầu AJAX tuần tự bằng cách sử dụng deferreds và promises
+      var deferreds = [];
+
+      function loadData(url,t) {
+        var deferred = $.Deferred();
+        $.ajax({
+          url: url,
+          dataType: 'json'
+        }).done(function(data) {
+            $(t).append('<option value="1">1</option>');
+            $(t).append('<option value="2">2</option>');
+            $(t).append('<option value="3">3</option>');
+          deferred.resolve(data);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+          deferred.reject(textStatus + ': ' + errorThrown);
+        });
+        return deferred.promise(); // Trả về một promise thay vì một deferred
+      }
+
+      loadData('https://jsonplaceholder.typicode.com/posts','#city').then(function(posts) {
+        
+        $('#city').val(3);
+        return loadData('https://jsonplaceholder.typicode.com/comments','#district');
+      }).then(function(comments) {
+        
+        $('#district').val(2);
+        return loadData('https://jsonplaceholder.typicode.com/users','#group');
+      }).then(function(users) {
+        
+        $('#group').val(3);
+      }).fail(function() {
+        $('#loading').text('Đã có lỗi xảy ra khi tải tài nguyên.');
+      });
+    });
+  </script>
